@@ -2,6 +2,7 @@
 
 import type React from "react"
 import { GhanaianNameGenerator } from "@/components/ghanaian-name-generator"
+import { Toaster } from "@/components/ui/toaster"
 
 export default function HomePage() {
   return (
@@ -15,6 +16,7 @@ export default function HomePage() {
       }}
     >
       <GhanaianNameGenerator />
+      <Toaster />
     </div>
   )
 }
