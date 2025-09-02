@@ -24,11 +24,18 @@ export async function POST(request: NextRequest) {
 Context: "${context}"
 
 Please respond with a JSON object containing:
-- "name": The Ghanaian name (include pronunciation if helpful)
-- "meaning": Brief meaning/translation of the name
-- "explanation": 2-3 sentences explaining how this name connects to their context and why it's appropriate
+- "name": The Ghanaian name with pronunciation guide in parentheses (e.g., "Kwame (KWAH-may)")
+- "meaning": A rich, detailed meaning that includes: the literal translation, cultural significance, traditional context, and symbolic associations. Make this 2-3 descriptive sentences.
+- "explanation": 3-4 sentences explaining how this name connects to their personal context, why it's culturally appropriate, what qualities it represents, and how it reflects Ghanaian naming wisdom.
 
-Focus on authentic Ghanaian naming traditions from cultures like Akan, Ewe, Ga, etc. Be respectful and culturally accurate.`
+Make the meaning very descriptive and culturally rich. Include details about:
+- What the name literally means
+- Its cultural and spiritual significance
+- Traditional contexts where this name is given
+- The positive qualities and aspirations it represents
+- How it connects to Ghanaian values and traditions
+
+Focus on authentic Ghanaian naming traditions from cultures like Akan, Ewe, Ga, Dagomba, Fante, etc. Be respectful and culturally accurate.`
 
     const response = await fetch('https://api.openai.com/v1/chat/completions', {
       method: 'POST',
@@ -74,9 +81,9 @@ Focus on authentic Ghanaian naming traditions from cultures like Akan, Ewe, Ga, 
       return NextResponse.json(parsedContent)
     } catch (parseError) {
       return NextResponse.json({
-        name: "Akosua",
-        meaning: "Born on Sunday",
-        explanation: "Based on your context, this traditional Akan day name represents new beginnings and hope, which seems to align with your situation. Akosua is a name given to females born on Sunday, symbolizing brightness and fresh starts."
+        name: "Akosua (ah-KOH-soo-ah)",
+        meaning: "Akosua literally means 'born on Sunday' in the Akan tradition and represents divine light, new beginnings, and spiritual renewal. In Ghanaian culture, Sunday-born children are considered blessed with natural leadership qualities, wisdom, and the ability to bring peace and harmony to their communities. This name carries the spiritual significance of the sun's energy and is associated with prosperity, joy, and positive transformation.",
+        explanation: "Based on your personal context, Akosua reflects the fresh start and new chapter you're embarking upon in your life. This traditional Akan day name is particularly fitting as it symbolizes the dawn of new opportunities and the bright potential that lies ahead. In Ghanaian naming wisdom, Akosua represents someone who brings light to others' lives and possesses the inner strength to overcome challenges. The name embodies the cultural values of hope, resilience, and community leadership that are central to Ghanaian identity."
       })
     }
   } catch (error) {
