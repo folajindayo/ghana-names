@@ -14,7 +14,6 @@ import { useAccount } from "wagmi"
 import { WalletConnect } from "@/components/wallet-connect"
 import { QRCodeModal } from "@/components/qr-code-modal"
 import { FavoritesButton } from "@/components/favorites-button"
-import { useState } from "react"
 
 type GenerationMode = 'simple' | 'ai'
 
