@@ -5,7 +5,7 @@ import { GhanaianNameGenerator } from "@/components/ghanaian-name-generator"
 import { Toaster } from "@/components/ui/toaster"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { User, Compass, Heart } from "lucide-react"
+import { User, Compass, Heart, BarChart3 } from "lucide-react"
 
 export default function HomePage() {
   return (
@@ -35,6 +35,12 @@ export default function HomePage() {
           <Button variant="outline" className="bg-white/10 border-white/20 text-white">
             <Compass className="mr-2 h-4 w-4" />
             Explore
+          </Button>
+        </Link>
+        <Link href="/analytics">
+          <Button variant="outline" className="bg-white/10 border-white/20 text-white">
+            <BarChart3 className="mr-2 h-4 w-4" />
+            Analytics
           </Button>
         </Link>
       </div>
