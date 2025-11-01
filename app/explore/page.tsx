@@ -6,6 +6,7 @@ import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { MapPin, BookOpen, Users, Download, Share2, ExternalLink, ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
+import { NameSearchFilter } from '@/components/name-search-filter'
 
 interface NameCard {
   _id: string
@@ -25,26 +26,44 @@ export default function ExplorePage() {
   const [loading, setLoading] = useState(true)
   const [offset, setOffset] = useState(0)
   const [hasMore, setHasMore] = useState(true)
+  const [searchQuery, setSearchQuery] = useState('')
+  const [selectedTribe, setSelectedTribe] = useState('all')
+  const [selectedGender, setSelectedGender] = useState('all')
+  const [availableTribes, setAvailableTribes] = useState<string[]>([])
 
   useEffect(() => {
-    fetchNameCards()
-  }, [])
+    fetchNameCards(true)
+  }, [searchQuery, selectedTribe, selectedGender])
 
   const fetchNameCards = async (reset = false) => {
     try {
       setLoading(true)
       const currentOffset = reset ? 0 : offset
-      const response = await fetch(`/api/names/explore?limit=20&offset=${currentOffset}`)
+      
+      const params = new URLSearchParams({
+        limit: '20',
+        offset: currentOffset.toString(),
+      })
+      
+      if (searchQuery) params.append('search', searchQuery)
+      if (selectedTribe !== 'all') params.append('tribe', selectedTribe)
+      if (selectedGender !== 'all') params.append('gender', selectedGender)
+
+      const response = await fetch(`/api/names/explore?${params.toString()}`)
 
       if (response.ok) {
         const data = await response.json()
         if (reset) {
           setNameCards(data.nameCards || [])
+          setOffset(data.nameCards?.length || 0)
+          if (data.availableTribes) {
+            setAvailableTribes(data.availableTribes)
+          }
         } else {
           setNameCards((prev) => [...prev, ...(data.nameCards || [])])
+          setOffset(currentOffset + (data.nameCards?.length || 0))
         }
         setHasMore(data.nameCards.length === 20)
-        setOffset(currentOffset + (data.nameCards?.length || 0))
       } else {
         console.warn('Failed to fetch name cards:', response.status)
         if (reset) {
@@ -93,7 +112,16 @@ export default function ExplorePage() {
           <CardHeader>
             <CardTitle className="text-white">Explore Claimed Names</CardTitle>
           </CardHeader>
-          <CardContent>
+          <CardContent className="space-y-6">
+            <NameSearchFilter
+              searchQuery={searchQuery}
+              onSearchChange={setSearchQuery}
+              selectedTribe={selectedTribe}
+              onTribeChange={setSelectedTribe}
+              selectedGender={selectedGender}
+              onGenderChange={setSelectedGender}
+              availableTribes={availableTribes}
+            />
             {loading && nameCards.length === 0 ? (
               <p className="text-white/70 text-center py-8">Loading...</p>
             ) : nameCards.length === 0 ? (
