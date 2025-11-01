@@ -785,6 +785,13 @@ export function GhanaianNameGenerator() {
         />
       )}
 
+        </TabsContent>
+
+        <TabsContent value="batch">
+          <BatchNameGenerator />
+        </TabsContent>
+      </Tabs>
+
     </div>
   )
 }
