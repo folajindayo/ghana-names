@@ -1,6 +1,7 @@
 import type React from "react"
 import type { Metadata } from "next"
 import { Space_Grotesk } from "next/font/google"
+import { WalletProvider } from "@/components/wallet-provider"
 import "./globals.css"
 
 const spaceGrotesk = Space_Grotesk({
@@ -10,8 +11,8 @@ const spaceGrotesk = Space_Grotesk({
 })
 
 export const metadata: Metadata = {
-  title: "v0 App",
-  description: "Created with v0",
+  title: "Ghanaian Name Generator",
+  description: "Discover your authentic Ghanaian name with Web3",
   generator: "v0.app",
 }
 
@@ -23,7 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${spaceGrotesk.variable} antialiased`}>
       <body className="font-sans" style={{ fontFamily: "var(--font-space-grotesk)" }}>
-        {children}
+        <WalletProvider>{children}</WalletProvider>
       </body>
     </html>
   )
