@@ -16,6 +16,7 @@ import { QRCodeModal } from "@/components/qr-code-modal"
 import { FavoritesButton } from "@/components/favorites-button"
 import { BatchNameGenerator } from "@/components/batch-name-generator"
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
+import { ExportNameCardButton } from "@/components/export-name-card"
 
 type GenerationMode = 'simple' | 'ai'
 
@@ -654,7 +655,7 @@ export function GhanaianNameGenerator() {
                     {generatedName.gender === 'male' ? 'Male' : 'Female'}
                   </Badge>
                 </div>
-                <div className="flex justify-center pt-2">
+                <div className="flex justify-center gap-2 pt-2">
                   <FavoritesButton
                     name={generatedName.name}
                     lastName={lastName}
@@ -662,6 +663,13 @@ export function GhanaianNameGenerator() {
                     tribe={generatedName.tribe}
                     gender={generatedName.gender}
                     isAIGenerated={false}
+                  />
+                  <ExportNameCardButton
+                    name={generatedName.name}
+                    lastName={lastName}
+                    meaning={generatedName.meaning}
+                    tribe={generatedName.tribe}
+                    gender={generatedName.gender}
                   />
                 </div>
               </div>
@@ -676,13 +684,19 @@ export function GhanaianNameGenerator() {
                   <p className="text-lg text-white/90 font-medium mb-4">
                     {aiGeneratedName.meaning}
                   </p>
-                  <div className="flex justify-center">
+                  <div className="flex justify-center gap-2">
                     <FavoritesButton
                       name={aiGeneratedName.name.split(' (')[0]}
                       lastName={lastName}
                       meaning={aiGeneratedName.meaning}
                       explanation={aiGeneratedName.explanation}
                       isAIGenerated={true}
+                    />
+                    <ExportNameCardButton
+                      name={aiGeneratedName.name.split(' (')[0]}
+                      lastName={lastName}
+                      meaning={aiGeneratedName.meaning}
+                      explanation={aiGeneratedName.explanation}
                     />
                   </div>
                 </div>
