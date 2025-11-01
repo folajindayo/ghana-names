@@ -7,11 +7,13 @@ import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Sparkles, Users, MapPin, BookOpen, Mic, MicOff, Wallet, Download, Share2, CheckCircle } from "lucide-react"
+import { Sparkles, Users, MapPin, BookOpen, Mic, MicOff, Wallet, Download, Share2, CheckCircle, QrCode } from "lucide-react"
 import { getRandomName, type GhanaianName } from "@/lib/ghanaian-names"
 import { useToast } from "@/hooks/use-toast"
 import { useAccount } from "wagmi"
 import { WalletConnect } from "@/components/wallet-connect"
+import { QRCodeModal } from "@/components/qr-code-modal"
+import { useState } from "react"
 
 type GenerationMode = 'simple' | 'ai'
 
@@ -43,6 +45,7 @@ export function GhanaianNameGenerator() {
   const [isGenerating, setIsGenerating] = useState(false)
   const [isClaiming, setIsClaiming] = useState(false)
   const [claimedCard, setClaimedCard] = useState<ClaimedNameCard | null>(null)
+  const [showQRModal, setShowQRModal] = useState(false)
   const { toast } = useToast()
 
   const handleGenerateName = async () => {
@@ -683,18 +686,12 @@ export function GhanaianNameGenerator() {
                       View on IPFS
                     </Button>
                     <Button
-                      onClick={() => {
-                        navigator.clipboard.writeText(claimedCard.ipfsUrl)
-                        toast({
-                          title: "Copied!",
-                          description: "IPFS URL copied to clipboard.",
-                        })
-                      }}
+                      onClick={() => setShowQRModal(true)}
                       variant="outline"
                       className="flex-1 bg-white/10 border-white/20 text-white hover:bg-white/20 hover:border-white/40 backdrop-blur-sm"
                     >
-                      <Share2 className="mr-2 h-4 w-4" />
-                      Share Link
+                      <QrCode className="mr-2 h-4 w-4" />
+                      Share QR Code
                     </Button>
                   </div>
                   <Button
@@ -745,6 +742,15 @@ export function GhanaianNameGenerator() {
             </div>
           </CardContent>
         </Card>
+      )}
+
+      {claimedCard && (
+        <QRCodeModal
+          open={showQRModal}
+          onOpenChange={setShowQRModal}
+          ipfsUrl={claimedCard.ipfsUrl}
+          nameCardTitle={generatedName ? `${generatedName.name} ${lastName}` : aiGeneratedName ? `${aiGeneratedName.name} ${lastName}` : 'Ghanaian Name'}
+        />
       )}
 
     </div>
