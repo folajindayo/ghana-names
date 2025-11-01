@@ -264,6 +264,24 @@ export default function ProfilePage() {
           </CardContent>
         </Card>
       </div>
+
+      {selectedNameCard && (
+        <GiftNameModal
+          open={giftModalOpen}
+          onOpenChange={(open) => {
+            setGiftModalOpen(open)
+            if (!open) setSelectedNameCard(null)
+          }}
+          nameCardId={selectedNameCard._id}
+          nameData={{
+            name: selectedNameCard.name,
+            lastName: selectedNameCard.lastName,
+            meaning: selectedNameCard.meaning,
+            tribe: selectedNameCard.tribe,
+            gender: selectedNameCard.gender,
+          }}
+        />
+      )}
     </div>
   )
 }
