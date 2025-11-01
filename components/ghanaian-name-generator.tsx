@@ -490,6 +490,18 @@ export function GhanaianNameGenerator() {
         </div>
       </div>
 
+      {/* Daily Name Generator */}
+      {lastName.trim() && (
+        <DailyNameGenerator
+          lastName={lastName}
+          onNameGenerated={(name) => {
+            setGeneratedName(name)
+            setAiGeneratedName(null)
+            setMode('simple')
+          }}
+        />
+      )}
+
       <Tabs defaultValue="single" className="w-full">
         <TabsList className="grid w-full grid-cols-2 bg-white/10 border-white/20">
           <TabsTrigger value="single" className="data-[state=active]:bg-white/20 text-white">
