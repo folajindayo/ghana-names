@@ -4,7 +4,7 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } f
 import { Button } from '@/components/ui/button'
 import { Download, Share2, Copy } from 'lucide-react'
 import { useToast } from '@/hooks/use-toast'
-import QRCode from 'qrcode.react'
+import { QRCodeSVG } from 'qrcode.react'
 
 interface QRCodeModalProps {
   open: boolean
@@ -52,7 +52,7 @@ export function QRCodeModal({ open, onOpenChange, ipfsUrl, nameCardTitle }: QRCo
         </DialogHeader>
         <div className="space-y-4 py-4">
           <div className="flex justify-center bg-white p-4 rounded-lg">
-            <QRCode
+            <QRCodeSVG
               value={ipfsUrl}
               size={256}
               level="H"
