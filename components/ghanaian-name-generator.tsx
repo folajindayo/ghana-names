@@ -13,6 +13,7 @@ import { useToast } from "@/hooks/use-toast"
 import { useAccount } from "wagmi"
 import { WalletConnect } from "@/components/wallet-connect"
 import { QRCodeModal } from "@/components/qr-code-modal"
+import { FavoritesButton } from "@/components/favorites-button"
 import { useState } from "react"
 
 type GenerationMode = 'simple' | 'ai'
@@ -641,6 +642,16 @@ export function GhanaianNameGenerator() {
                     {generatedName.gender === 'male' ? 'Male' : 'Female'}
                   </Badge>
                 </div>
+                <div className="flex justify-center pt-2">
+                  <FavoritesButton
+                    name={generatedName.name}
+                    lastName={lastName}
+                    meaning={generatedName.meaning}
+                    tribe={generatedName.tribe}
+                    gender={generatedName.gender}
+                    isAIGenerated={false}
+                  />
+                </div>
               </div>
             )}
 
@@ -653,6 +664,15 @@ export function GhanaianNameGenerator() {
                   <p className="text-lg text-white/90 font-medium mb-4">
                     {aiGeneratedName.meaning}
                   </p>
+                  <div className="flex justify-center">
+                    <FavoritesButton
+                      name={aiGeneratedName.name.split(' (')[0]}
+                      lastName={lastName}
+                      meaning={aiGeneratedName.meaning}
+                      explanation={aiGeneratedName.explanation}
+                      isAIGenerated={true}
+                    />
+                  </div>
                 </div>
                 
                 <div className="space-y-2">
