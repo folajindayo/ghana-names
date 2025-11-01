@@ -7,9 +7,11 @@ import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Sparkles, Users, MapPin, BookOpen, Mic, MicOff } from "lucide-react"
+import { Sparkles, Users, MapPin, BookOpen, Mic, MicOff, Wallet, Download, Share2, CheckCircle } from "lucide-react"
 import { getRandomName, type GhanaianName } from "@/lib/ghanaian-names"
 import { useToast } from "@/hooks/use-toast"
+import { useAccount } from "wagmi"
+import { WalletConnect } from "@/components/wallet-connect"
 
 type GenerationMode = 'simple' | 'ai'
 
@@ -19,7 +21,15 @@ interface AIGeneratedName {
   explanation: string
 }
 
+interface ClaimedNameCard {
+  id: string
+  ipfsHash: string
+  ipfsUrl: string
+  createdAt: string
+}
+
 export function GhanaianNameGenerator() {
+  const { address, isConnected } = useAccount()
   const [mode, setMode] = useState<GenerationMode>('simple')
   const [gender, setGender] = useState<'any' | 'male' | 'female'>('any')
   const [lastName, setLastName] = useState('')
@@ -31,6 +41,8 @@ export function GhanaianNameGenerator() {
   const [generatedName, setGeneratedName] = useState<GhanaianName | null>(null)
   const [aiGeneratedName, setAiGeneratedName] = useState<AIGeneratedName | null>(null)
   const [isGenerating, setIsGenerating] = useState(false)
+  const [isClaiming, setIsClaiming] = useState(false)
+  const [claimedCard, setClaimedCard] = useState<ClaimedNameCard | null>(null)
   const { toast } = useToast()
 
   const handleGenerateName = async () => {
@@ -358,13 +370,90 @@ export function GhanaianNameGenerator() {
 
   const handleGenerateAnother = () => {
     handleGenerateName()
+    setClaimedCard(null)
+  }
+
+  const handleClaimName = async () => {
+    if (!isConnected || !address) {
+      toast({
+        title: "Wallet not connected",
+        description: "Please connect your wallet to claim a name.",
+        variant: "destructive",
+      })
+      return
+    }
+
+    if (!generatedName && !aiGeneratedName) {
+      toast({
+        title: "No name to claim",
+        description: "Please generate a name first.",
+        variant: "destructive",
+      })
+      return
+    }
+
+    setIsClaiming(true)
+
+    try {
+      const nameData = generatedName
+        ? {
+            name: generatedName.name,
+            meaning: generatedName.meaning,
+            tribe: generatedName.tribe,
+            gender: generatedName.gender,
+          }
+        : {
+            name: aiGeneratedName!.name.split(' (')[0], // Remove pronunciation guide
+            meaning: aiGeneratedName!.meaning,
+            explanation: aiGeneratedName!.explanation,
+          }
+
+      const response = await fetch('/api/names/claim', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          walletAddress: address,
+          lastName,
+          ...nameData,
+        }),
+      })
+
+      if (!response.ok) {
+        const error = await response.json()
+        throw new Error(error.error || 'Failed to claim name')
+      }
+
+      const result = await response.json()
+      setClaimedCard(result.nameCard)
+
+      toast({
+        title: "Name claimed successfully!",
+        description: "Your name has been saved to IPFS and linked to your wallet.",
+      })
+    } catch (error: any) {
+      console.error('Claim error:', error)
+      toast({
+        title: "Claim failed",
+        description: error.message || "There was an error claiming your name. Please try again.",
+        variant: "destructive",
+      })
+    } finally {
+      setIsClaiming(false)
+    }
   }
 
   return (
     <div className="w-full max-w-2xl mx-auto space-y-6">
-      <div className="text-center space-y-2">
-        <h1 className="text-3xl font-bold text-white">🇬🇭 Ghanaian Name Generator</h1>
-        <p className="text-white/70">Discover your authentic Ghanaian name with meaning and tribe</p>
+      <div className="text-center space-y-4">
+        <div>
+          <h1 className="text-3xl font-bold text-white">🇬🇭 Ghanaian Name Generator</h1>
+          <p className="text-white/70">Discover your authentic Ghanaian name with meaning and tribe</p>
+        </div>
+        <div className="flex justify-center">
+          <WalletConnect />
+        </div>
       </div>
 
       <Card className="bg-white/10 backdrop-blur-sm border-white/20">
@@ -549,15 +638,82 @@ export function GhanaianNameGenerator() {
               </div>
             )}
 
-            <div className="pt-4 border-t border-white/20">
-              <Button
-                onClick={handleGenerateAnother}
-                variant="outline"
-                className="w-full bg-white/10 border-white/20 text-white hover:bg-white/20 hover:border-white/40 backdrop-blur-sm"
-              >
-                <Sparkles className="mr-2 h-4 w-4" />
-                Generate Another Name
-              </Button>
+            <div className="pt-4 border-t border-white/20 space-y-3">
+              {claimedCard ? (
+                <div className="space-y-3">
+                  <div className="flex items-center gap-2 justify-center text-green-400">
+                    <CheckCircle className="h-5 w-5" />
+                    <span className="font-semibold">Name Claimed Successfully!</span>
+                  </div>
+                  <div className="flex flex-col sm:flex-row gap-2">
+                    <Button
+                      onClick={() => window.open(claimedCard.ipfsUrl, '_blank')}
+                      variant="outline"
+                      className="flex-1 bg-white/10 border-white/20 text-white hover:bg-white/20 hover:border-white/40 backdrop-blur-sm"
+                    >
+                      <Download className="mr-2 h-4 w-4" />
+                      View on IPFS
+                    </Button>
+                    <Button
+                      onClick={() => {
+                        navigator.clipboard.writeText(claimedCard.ipfsUrl)
+                        toast({
+                          title: "Copied!",
+                          description: "IPFS URL copied to clipboard.",
+                        })
+                      }}
+                      variant="outline"
+                      className="flex-1 bg-white/10 border-white/20 text-white hover:bg-white/20 hover:border-white/40 backdrop-blur-sm"
+                    >
+                      <Share2 className="mr-2 h-4 w-4" />
+                      Share Link
+                    </Button>
+                  </div>
+                  <Button
+                    onClick={handleGenerateAnother}
+                    variant="outline"
+                    className="w-full bg-white/10 border-white/20 text-white hover:bg-white/20 hover:border-white/40 backdrop-blur-sm"
+                  >
+                    <Sparkles className="mr-2 h-4 w-4" />
+                    Generate Another Name
+                  </Button>
+                </div>
+              ) : (
+                <div className="space-y-2">
+                  {isConnected ? (
+                    <Button
+                      onClick={handleClaimName}
+                      disabled={isClaiming}
+                      className="w-full bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white border-0"
+                    >
+                      {isClaiming ? (
+                        <>
+                          <Sparkles className="mr-2 h-4 w-4 animate-spin" />
+                          Claiming...
+                        </>
+                      ) : (
+                        <>
+                          <Wallet className="mr-2 h-4 w-4" />
+                          Claim Name to Wallet
+                        </>
+                      )}
+                    </Button>
+                  ) : (
+                    <div className="text-center space-y-2">
+                      <p className="text-white/70 text-sm">Connect your wallet to claim this name</p>
+                      <WalletConnect />
+                    </div>
+                  )}
+                  <Button
+                    onClick={handleGenerateAnother}
+                    variant="outline"
+                    className="w-full bg-white/10 border-white/20 text-white hover:bg-white/20 hover:border-white/40 backdrop-blur-sm"
+                  >
+                    <Sparkles className="mr-2 h-4 w-4" />
+                    Generate Another Name
+                  </Button>
+                </div>
+              )}
             </div>
           </CardContent>
         </Card>
