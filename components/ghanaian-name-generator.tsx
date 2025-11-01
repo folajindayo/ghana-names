@@ -670,6 +670,11 @@ export function GhanaianNameGenerator() {
                     {generatedName.gender === 'male' ? 'Male' : 'Female'}
                   </Badge>
                 </div>
+                <PronunciationGuide
+                  name={generatedName.name}
+                  meaning={generatedName.meaning}
+                  tribe={generatedName.tribe}
+                />
                 <div className="space-y-3 pt-2">
                   <div className="flex justify-center gap-2 flex-wrap">
                     <FavoritesButton
