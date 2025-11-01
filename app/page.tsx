@@ -3,6 +3,9 @@
 import type React from "react"
 import { GhanaianNameGenerator } from "@/components/ghanaian-name-generator"
 import { Toaster } from "@/components/ui/toaster"
+import Link from "next/link"
+import { Button } from "@/components/ui/button"
+import { User, Compass } from "lucide-react"
 
 export default function HomePage() {
   return (
@@ -15,6 +18,20 @@ export default function HomePage() {
         backgroundRepeat: "no-repeat",
       }}
     >
+      <div className="absolute top-4 right-4 flex gap-2">
+        <Link href="/profile">
+          <Button variant="outline" className="bg-white/10 border-white/20 text-white">
+            <User className="mr-2 h-4 w-4" />
+            Profile
+          </Button>
+        </Link>
+        <Link href="/explore">
+          <Button variant="outline" className="bg-white/10 border-white/20 text-white">
+            <Compass className="mr-2 h-4 w-4" />
+            Explore
+          </Button>
+        </Link>
+      </div>
       <GhanaianNameGenerator />
       <Toaster />
     </div>
