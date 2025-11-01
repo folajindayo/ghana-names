@@ -62,14 +62,22 @@ export default function ProfilePage() {
       if (namesResponse.ok) {
         const namesData = await namesResponse.json()
         setNameCards(namesData.nameCards || [])
+      } else {
+        console.warn('Failed to fetch names:', namesResponse.status)
+        setNameCards([])
       }
 
       if (transactionsResponse.ok) {
         const transactionsData = await transactionsResponse.json()
         setTransactions(transactionsData.transactions || [])
+      } else {
+        console.warn('Failed to fetch transactions:', transactionsResponse.status)
+        setTransactions([])
       }
     } catch (error) {
       console.error('Error fetching user data:', error)
+      setNameCards([])
+      setTransactions([])
     } finally {
       setLoading(false)
     }
