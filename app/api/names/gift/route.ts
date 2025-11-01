@@ -8,7 +8,7 @@ export async function POST(request: NextRequest) {
     await connectDB()
 
     const body = await request.json()
-    const { fromAddress, toAddress, nameCardId } = body
+    const { fromAddress, toAddress, nameCardId, message } = body
 
     if (!fromAddress || !toAddress || !nameCardId) {
       return NextResponse.json(
@@ -45,6 +45,7 @@ export async function POST(request: NextRequest) {
       metadata: {
         name: nameCard.name,
         lastName: nameCard.lastName,
+        message: message || undefined,
       },
     })
 

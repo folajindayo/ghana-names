@@ -17,6 +17,7 @@ import { FavoritesButton } from "@/components/favorites-button"
 import { BatchNameGenerator } from "@/components/batch-name-generator"
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
 import { ExportNameCardButton } from "@/components/export-name-card"
+import { NameRecommendations } from "@/components/name-recommendations"
 
 type GenerationMode = 'simple' | 'ai'
 

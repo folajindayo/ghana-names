@@ -6,7 +6,8 @@ import { useEffect, useState } from 'react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-import { Wallet, Download, Share2, ExternalLink, ArrowLeft, MapPin, BookOpen, Users } from 'lucide-react'
+import { Wallet, Download, Share2, ExternalLink, ArrowLeft, MapPin, BookOpen, Users, Gift, Clock } from 'lucide-react'
+import { GiftNameModal } from '@/components/gift-name-modal'
 import { WalletConnect } from '@/components/wallet-connect'
 import Link from 'next/link'
 
@@ -40,6 +41,8 @@ export default function ProfilePage() {
   const [nameCards, setNameCards] = useState<NameCard[]>([])
   const [transactions, setTransactions] = useState<Transaction[]>([])
   const [loading, setLoading] = useState(true)
+  const [giftModalOpen, setGiftModalOpen] = useState(false)
+  const [selectedNameCard, setSelectedNameCard] = useState<NameCard | null>(null)
 
   useEffect(() => {
     if (isConnected && address) {
