@@ -29,11 +29,19 @@ export function ExportNameCardButton({ name, lastName, meaning, tribe, gender, e
         backgroundColor: '#667eea',
         scale: 2,
         logging: false,
-        useCORS: true,
-        allowTaint: true,
-        ignoreElements: (element) => {
-          // Ignore elements that might cause issues
-          return false
+        useCORS: false,
+        allowTaint: false,
+        removeContainer: true,
+        windowWidth: 800,
+        windowHeight: 600,
+        onclone: (clonedDoc) => {
+          // Remove any stylesheets that might have oklch colors
+          const styleSheets = clonedDoc.querySelectorAll('style, link[rel="stylesheet"]')
+          styleSheets.forEach((style) => {
+            if (style.parentNode) {
+              style.parentNode.removeChild(style)
+            }
+          })
         },
       })
 
@@ -84,50 +92,98 @@ export function ExportNameCardButton({ name, lastName, meaning, tribe, gender, e
         Export as Image
       </Button>
 
-      {/* Hidden card for export */}
-      <div ref={cardRef} className="hidden">
+      {/* Hidden card for export - completely isolated from page styles */}
+      <div 
+        ref={cardRef} 
+        style={{
+          position: 'fixed',
+          left: '-9999px',
+          top: '-9999px',
+          width: '800px',
+          height: '600px',
+          visibility: 'hidden',
+          zIndex: -9999,
+        }}
+      >
         <div
           style={{
             width: '800px',
             height: '600px',
             backgroundColor: '#667eea',
-            backgroundImage: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
             padding: '60px',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'center',
             alignItems: 'center',
-            fontFamily: 'Arial, sans-serif',
+            fontFamily: 'Arial, Helvetica, sans-serif',
             color: '#ffffff',
             position: 'relative',
             boxSizing: 'border-box',
+            margin: '0',
+            border: 'none',
+            outline: 'none',
+            overflow: 'hidden',
           }}
         >
           {/* Header */}
-          <div style={{ fontSize: '48px', fontWeight: 'bold', marginBottom: '20px' }}>
+          <div style={{ 
+            fontSize: '48px', 
+            fontWeight: 'bold', 
+            marginBottom: '20px',
+            color: '#ffffff',
+            backgroundColor: 'transparent',
+          }}>
             🇬🇭 Ghanaian Name
           </div>
 
           {/* Name */}
-          <div style={{ fontSize: '72px', fontWeight: 'bold', marginBottom: '40px', textAlign: 'center' }}>
+          <div style={{ 
+            fontSize: '72px', 
+            fontWeight: 'bold', 
+            marginBottom: '40px', 
+            textAlign: 'center',
+            color: '#ffffff',
+            backgroundColor: 'transparent',
+          }}>
             {name} {lastName}
           </div>
 
           {/* Meaning */}
-          <div style={{ fontSize: '32px', marginBottom: '30px', textAlign: 'center', maxWidth: '600px' }}>
+          <div style={{ 
+            fontSize: '32px', 
+            marginBottom: '30px', 
+            textAlign: 'center', 
+            maxWidth: '600px',
+            color: '#ffffff',
+            backgroundColor: 'transparent',
+          }}>
             "{meaning}"
           </div>
 
           {/* Details */}
-          <div style={{ display: 'flex', gap: '30px', marginTop: '40px' }}>
+          <div style={{ 
+            display: 'flex', 
+            gap: '30px', 
+            marginTop: '40px',
+            color: '#ffffff',
+            backgroundColor: 'transparent',
+          }}>
             {tribe && (
-              <div style={{ fontSize: '24px' }}>
-                <strong>Tribe:</strong> {tribe}
+              <div style={{ 
+                fontSize: '24px',
+                color: '#ffffff',
+                backgroundColor: 'transparent',
+              }}>
+                <strong style={{ fontWeight: 'bold', color: '#ffffff' }}>Tribe:</strong> {tribe}
               </div>
             )}
             {gender && (
-              <div style={{ fontSize: '24px' }}>
-                <strong>Gender:</strong> {gender.charAt(0).toUpperCase() + gender.slice(1)}
+              <div style={{ 
+                fontSize: '24px',
+                color: '#ffffff',
+                backgroundColor: 'transparent',
+              }}>
+                <strong style={{ fontWeight: 'bold', color: '#ffffff' }}>Gender:</strong> {gender.charAt(0).toUpperCase() + gender.slice(1)}
               </div>
             )}
           </div>
@@ -141,7 +197,8 @@ export function ExportNameCardButton({ name, lastName, meaning, tribe, gender, e
                 textAlign: 'center',
                 maxWidth: '650px',
                 lineHeight: '1.6',
-                opacity: 0.9,
+                color: '#ffffff',
+                backgroundColor: 'transparent',
               }}
             >
               {explanation}
@@ -154,7 +211,8 @@ export function ExportNameCardButton({ name, lastName, meaning, tribe, gender, e
               position: 'absolute',
               bottom: '30px',
               fontSize: '18px',
-              opacity: 0.7,
+              color: '#ffffff',
+              backgroundColor: 'transparent',
             }}
           >
             Generated by Ghanaian Name Generator
