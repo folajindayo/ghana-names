@@ -23,10 +23,33 @@ export async function GET(request: NextRequest) {
     const limit = parseInt(request.nextUrl.searchParams.get('limit') || '20')
     const offset = parseInt(request.nextUrl.searchParams.get('offset') || '0')
     const walletAddress = request.nextUrl.searchParams.get('walletAddress')
+    const searchQuery = request.nextUrl.searchParams.get('search') || ''
+    const tribe = request.nextUrl.searchParams.get('tribe')
+    const gender = request.nextUrl.searchParams.get('gender')
 
     const query: any = {}
     if (walletAddress) {
       query.walletAddress = walletAddress.toLowerCase()
+    }
+
+    // Add search filter
+    if (searchQuery) {
+      query.$or = [
+        { name: { $regex: searchQuery, $options: 'i' } },
+        { lastName: { $regex: searchQuery, $options: 'i' } },
+        { meaning: { $regex: searchQuery, $options: 'i' } },
+        { walletAddress: { $regex: searchQuery, $options: 'i' } },
+      ]
+    }
+
+    // Add tribe filter
+    if (tribe && tribe !== 'all') {
+      query.tribe = tribe
+    }
+
+    // Add gender filter
+    if (gender && gender !== 'all') {
+      query.gender = gender
     }
 
     const nameCards = await NameCard.find(query)
@@ -34,6 +57,10 @@ export async function GET(request: NextRequest) {
       .limit(limit)
       .skip(offset)
       .lean()
+
+    // Get unique tribes for filter dropdown
+    const allTribes = await NameCard.distinct('tribe')
+    const uniqueTribes = allTribes.filter((tribe) => tribe && tribe.trim() !== '')
 
     const total = await NameCard.countDocuments(query)
 
@@ -43,6 +70,7 @@ export async function GET(request: NextRequest) {
       total,
       limit,
       offset,
+      availableTribes: uniqueTribes,
     })
   } catch (error: any) {
     console.error('Error fetching name cards:', error)
