@@ -715,6 +715,10 @@ export function GhanaianNameGenerator() {
                   <p className="text-lg text-white/90 font-medium mb-4">
                     {aiGeneratedName.meaning}
                   </p>
+                  <PronunciationGuide
+                    name={aiGeneratedName.name.split(' (')[0]}
+                    meaning={aiGeneratedName.meaning}
+                  />
                   <div className="space-y-3">
                     <div className="flex justify-center gap-2 flex-wrap">
                       <FavoritesButton
