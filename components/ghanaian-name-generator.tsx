@@ -14,6 +14,8 @@ import { useAccount } from "wagmi"
 import { WalletConnect } from "@/components/wallet-connect"
 import { QRCodeModal } from "@/components/qr-code-modal"
 import { FavoritesButton } from "@/components/favorites-button"
+import { BatchNameGenerator } from "@/components/batch-name-generator"
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
 
 type GenerationMode = 'simple' | 'ai'
 
@@ -484,7 +486,18 @@ export function GhanaianNameGenerator() {
         </div>
       </div>
 
-      <Card className="bg-white/10 backdrop-blur-sm border-white/20">
+      <Tabs defaultValue="single" className="w-full">
+        <TabsList className="grid w-full grid-cols-2 bg-white/10 border-white/20">
+          <TabsTrigger value="single" className="data-[state=active]:bg-white/20 text-white">
+            Single Name
+          </TabsTrigger>
+          <TabsTrigger value="batch" className="data-[state=active]:bg-white/20 text-white">
+            Batch Generate
+          </TabsTrigger>
+        </TabsList>
+
+        <TabsContent value="single" className="space-y-6">
+          <Card className="bg-white/10 backdrop-blur-sm border-white/20">
         <CardHeader>
           <CardTitle className="text-white flex items-center gap-2">
             <Sparkles className="h-5 w-5" />
