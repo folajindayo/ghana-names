@@ -26,10 +26,15 @@ export function ExportNameCardButton({ name, lastName, meaning, tribe, gender, e
       const html2canvas = (await import('html2canvas')).default
 
       const canvas = await html2canvas(cardRef.current, {
-        backgroundColor: '#1a1a2e',
+        backgroundColor: '#667eea',
         scale: 2,
         logging: false,
         useCORS: true,
+        allowTaint: true,
+        ignoreElements: (element) => {
+          // Ignore elements that might cause issues
+          return false
+        },
       })
 
       // Convert to blob and download
@@ -85,7 +90,8 @@ export function ExportNameCardButton({ name, lastName, meaning, tribe, gender, e
           style={{
             width: '800px',
             height: '600px',
-            background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+            backgroundColor: '#667eea',
+            backgroundImage: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
             padding: '60px',
             display: 'flex',
             flexDirection: 'column',
@@ -94,6 +100,7 @@ export function ExportNameCardButton({ name, lastName, meaning, tribe, gender, e
             fontFamily: 'Arial, sans-serif',
             color: '#ffffff',
             position: 'relative',
+            boxSizing: 'border-box',
           }}
         >
           {/* Header */}
