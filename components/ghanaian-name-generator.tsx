@@ -421,24 +421,49 @@ export function GhanaianNameGenerator() {
       })
 
       if (!response.ok) {
-        const error = await response.json()
-        throw new Error(error.error || 'Failed to claim name')
+        const errorData = await response.json()
+        const errorMessage = errorData.error || errorData.details || 'Failed to claim name'
+        
+        // Check if it's a database connection error
+        if (response.status === 503 || errorMessage.includes('Database not available')) {
+          toast({
+            title: "Database Not Configured",
+            description: "MongoDB is not available. For local development, please update MONGODB_URI in .env.local with a MongoDB Atlas connection string or local MongoDB instance.",
+            variant: "destructive",
+            duration: 10000, // Show for 10 seconds
+          })
+          throw new Error('Database not available')
+        }
+        
+        throw new Error(errorMessage)
       }
 
       const result = await response.json()
       setClaimedCard(result.nameCard)
 
-      toast({
-        title: "Name claimed successfully!",
-        description: "Your name has been saved to IPFS and linked to your wallet.",
-      })
+      if (result.savedToDatabase) {
+        toast({
+          title: "Name claimed successfully!",
+          description: "Your name has been saved to IPFS and linked to your wallet.",
+        })
+      } else {
+        toast({
+          title: "Name saved to IPFS!",
+          description: result.note || "Name saved to IPFS. Configure MongoDB to save to database for full functionality.",
+          variant: "default",
+        })
+      }
     } catch (error: any) {
       console.error('Claim error:', error)
-      toast({
-        title: "Claim failed",
-        description: error.message || "There was an error claiming your name. Please try again.",
-        variant: "destructive",
-      })
+      
+      // Don't show duplicate error toast if we already showed one above
+      if (!error.message?.includes('Database not available')) {
+        toast({
+          title: "Claim failed",
+          description: error.message || "There was an error claiming your name. Please try again.",
+          variant: "destructive",
+        })
+      }
     } finally {
       setIsClaiming(false)
     }
@@ -643,8 +668,11 @@ export function GhanaianNameGenerator() {
                 <div className="space-y-3">
                   <div className="flex items-center gap-2 justify-center text-green-400">
                     <CheckCircle className="h-5 w-5" />
-                    <span className="font-semibold">Name Claimed Successfully!</span>
+                    <span className="font-semibold">Name Saved to IPFS!</span>
                   </div>
+                  <p className="text-center text-sm text-white/70">
+                    Your name card is permanently stored on IPFS and accessible via the link below.
+                  </p>
                   <div className="flex flex-col sm:flex-row gap-2">
                     <Button
                       onClick={() => window.open(claimedCard.ipfsUrl, '_blank')}
