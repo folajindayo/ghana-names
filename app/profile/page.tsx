@@ -195,13 +195,13 @@ export default function ProfilePage() {
                                   size="sm"
                                   variant="outline"
                                   onClick={() => {
-                                    navigator.clipboard.writeText(card.ipfsUrl)
-                                    alert('IPFS URL copied!')
+                                    setSelectedNameCard(card)
+                                    setGiftModalOpen(true)
                                   }}
-                                  className="bg-white/10 border-white/20 text-white"
+                                  className="bg-white/10 border-white/20 text-white hover:bg-yellow-500/20"
                                 >
-                                  <Share2 className="mr-2 h-4 w-4" />
-                                  Share
+                                  <Gift className="mr-2 h-4 w-4" />
+                                  Gift
                                 </Button>
                               </div>
                             </div>

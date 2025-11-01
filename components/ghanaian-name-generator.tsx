@@ -628,7 +628,7 @@ export function GhanaianNameGenerator() {
       </Card>
 
       {(generatedName || aiGeneratedName) && (
-        <Card className="bg-white/10 backdrop-blur-sm border-white/20">
+        <Card className="bg-white/10 backdrop-blur-sm border-white/20" data-name-card>
           <CardHeader>
             <CardTitle className="text-white flex items-center gap-2">
               <Users className="h-5 w-5" />
@@ -806,6 +806,23 @@ export function GhanaianNameGenerator() {
           <BatchNameGenerator />
         </TabsContent>
       </Tabs>
+
+      {/* Recommendations */}
+      {lastName.trim() && (
+        <NameRecommendations
+          lastName={lastName}
+          onSelectName={(name) => {
+            setGeneratedName(name)
+            setAiGeneratedName(null)
+            setMode('simple')
+            // Scroll to name card
+            setTimeout(() => {
+              const nameCard = document.querySelector('[data-name-card]')
+              nameCard?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+            }, 100)
+          }}
+        />
+      )}
 
     </div>
   )
