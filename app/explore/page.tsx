@@ -45,9 +45,19 @@ export default function ExplorePage() {
         }
         setHasMore(data.nameCards.length === 20)
         setOffset(currentOffset + (data.nameCards?.length || 0))
+      } else {
+        console.warn('Failed to fetch name cards:', response.status)
+        if (reset) {
+          setNameCards([])
+        }
+        setHasMore(false)
       }
     } catch (error) {
       console.error('Error fetching name cards:', error)
+      if (reset) {
+        setNameCards([])
+      }
+      setHasMore(false)
     } finally {
       setLoading(false)
     }
