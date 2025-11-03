@@ -8,6 +8,7 @@ import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Wallet, Download, Share2, ExternalLink, ArrowLeft, MapPin, BookOpen, Users, Gift, Clock } from 'lucide-react'
 import { GiftNameModal } from '@/components/gift-name-modal'
+import { ExportPDFButton } from '@/components/export-pdf-button'
 import { WalletConnect } from '@/components/wallet-connect'
 import Link from 'next/link'
 
