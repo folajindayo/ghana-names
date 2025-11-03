@@ -284,6 +284,16 @@ export default function ProfilePage() {
           }}
         />
       )}
+
+      {/* Backup & Restore */}
+      <Card className="bg-white/10 backdrop-blur-sm border-white/20 mt-6">
+        <CardHeader>
+          <CardTitle className="text-white">Data Management</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <NameBackupRestore />
+        </CardContent>
+      </Card>
     </div>
   )
 }
