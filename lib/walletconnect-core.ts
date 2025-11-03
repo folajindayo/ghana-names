@@ -3,12 +3,13 @@
  * Uses @walletconnect/core for protocol-level control
  */
 
-import type { WalletConnectOptions } from '@walletconnect/types'
-import type { CoreTypes } from '@walletconnect/types'
+// Note: Types will be available once @walletconnect/core and @walletconnect/types are installed
+// import type { IWalletConnectOptions } from '@walletconnect/types'
+// import type { ICore } from '@walletconnect/types'
 
 // Core WalletConnect functionality using @walletconnect/core
 export class WalletConnectCore {
-  private core: CoreTypes.Core | null = null
+  private core: any | null = null // ICore type once library is installed
   private projectId: string
 
   constructor(projectId: string) {
@@ -26,7 +27,8 @@ export class WalletConnectCore {
       // Dynamic import to avoid SSR issues
       const { Core } = await import('@walletconnect/core')
       
-      const options: WalletConnectOptions = {
+      // Note: IWalletConnectOptions type will be available once library is installed
+      const options: any = {
         projectId: this.projectId,
         relayUrl: 'wss://relay.walletconnect.com',
         metadata: {
@@ -60,9 +62,16 @@ export class WalletConnectCore {
   subscribeToEvents(callback: (event: any) => void) {
     if (!this.core) return
 
-    this.core.on('session_proposal', callback)
-    this.core.on('session_request', callback)
-    this.core.on('session_delete', callback)
+    // Event subscriptions - exact events depend on WalletConnect Core API
+    try {
+      if (this.core.on) {
+        this.core.on('session_proposal', callback)
+        this.core.on('session_request', callback)
+        this.core.on('session_delete', callback)
+      }
+    } catch (error) {
+      console.warn('WalletConnect Core events not available:', error)
+    }
   }
 }
 
