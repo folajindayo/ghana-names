@@ -27,6 +27,9 @@ import { NameOriginStory } from "@/components/name-origin-story"
 import { EmailShare } from "@/components/email-share"
 import { NameVoting } from "@/components/name-voting"
 import { NameComments } from "@/components/name-comments"
+import { NameRoulette } from "@/components/name-roulette"
+import { WhatsAppShare } from "@/components/whatsapp-share"
+import { NameMeaningDeepDive } from "@/components/name-meaning-deepdive"
 
 type GenerationMode = 'simple' | 'ai'
 
@@ -509,6 +512,19 @@ export function GhanaianNameGenerator() {
         />
       )}
 
+      {/* Name Roulette */}
+      {lastName.trim() && (
+        <NameRoulette
+          lastName={lastName}
+          gender={gender}
+          onNameSelected={(name) => {
+            setGeneratedName(name)
+            setAiGeneratedName(null)
+            setMode('simple')
+          }}
+        />
+      )}
+
       {/* Daily Name Generator */}
       {lastName.trim() && (
         <DailyNameGenerator
@@ -727,6 +743,12 @@ export function GhanaianNameGenerator() {
                       meaning={generatedName.meaning}
                       tribe={generatedName.tribe}
                       ipfsUrl={claimedCard?.ipfsUrl}
+                    />
+                    <WhatsAppShare
+                      name={generatedName.name}
+                      lastName={lastName}
+                      meaning={generatedName.meaning}
+                      tribe={generatedName.tribe}
                     />
                   </div>
                   
