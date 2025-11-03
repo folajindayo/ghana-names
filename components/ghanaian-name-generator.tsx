@@ -21,6 +21,7 @@ import { NameRecommendations } from "@/components/name-recommendations"
 import { DailyNameGenerator } from "@/components/daily-name-generator"
 import { SocialShare } from "@/components/social-share"
 import { NameDayCalculator } from "@/components/name-day-calculator"
+import { NameSimilarityFinder } from "@/components/name-similarity-finder"
 
 type GenerationMode = 'simple' | 'ai'
 
@@ -854,6 +855,9 @@ export function GhanaianNameGenerator() {
 
       {/* Name Day Calculator */}
       <NameDayCalculator />
+
+      {/* Name Similarity Finder */}
+      <NameSimilarityFinder />
 
       {/* Recommendations */}
       {lastName.trim() && (

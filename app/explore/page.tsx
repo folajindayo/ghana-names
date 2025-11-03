@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button'
 import { MapPin, BookOpen, Users, Download, Share2, ExternalLink, ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
 import { NameSearchFilter } from '@/components/name-search-filter'
+import { NameSearchAutocomplete } from '@/components/name-search-autocomplete'
 
 interface NameCard {
   _id: string
