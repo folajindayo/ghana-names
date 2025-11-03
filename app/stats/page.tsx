@@ -6,7 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { WalletConnect } from '@/components/wallet-connect'
-import { BarChart3, Trophy, ArrowLeft, Sparkles, Heart, Gift, GiftReceived, MapPin, Users } from 'lucide-react'
+import { BarChart3, Trophy, ArrowLeft, Sparkles, Heart, Gift, Package, MapPin, Users } from 'lucide-react'
 import Link from 'next/link'
 
 interface UserStats {
@@ -176,7 +176,7 @@ export default function StatsPage() {
                   <p className="text-white/60 text-sm">Gifts Received</p>
                   <p className="text-3xl font-bold text-green-400">{stats.overview.totalGiftsReceived}</p>
                 </div>
-                <GiftReceived className="h-8 w-8 text-green-400/50" />
+                <Package className="h-8 w-8 text-green-400/50" />
               </div>
             </CardContent>
           </Card>
