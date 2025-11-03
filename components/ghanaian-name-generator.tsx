@@ -744,6 +744,7 @@ export function GhanaianNameGenerator() {
                     name={aiGeneratedName.name.split(' (')[0]}
                     meaning={aiGeneratedName.meaning}
                   />
+                  <NameOriginStory name={aiGeneratedName.name.split(' (')[0]} />
                   <div className="space-y-3">
                     <div className="flex justify-center gap-2 flex-wrap">
                       <FavoritesButton
