@@ -711,6 +711,12 @@ export function GhanaianNameGenerator() {
                   tribe={generatedName.tribe}
                 />
                 <NameOriginStory name={generatedName.name} />
+                <NameMeaningDeepDive
+                  name={generatedName.name}
+                  meaning={generatedName.meaning}
+                  tribe={generatedName.tribe}
+                  gender={generatedName.gender}
+                />
                 <div className="space-y-3 pt-2">
                   <div className="flex justify-center gap-2 flex-wrap">
                     <FavoritesButton
