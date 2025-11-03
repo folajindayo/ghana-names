@@ -10,6 +10,7 @@ import { PopularNames } from "@/components/popular-names"
 import { FeaturedNames } from "@/components/featured-names"
 import { RecentClaimsFeed } from "@/components/recent-claims-feed"
 import { NameQuiz } from "@/components/name-quiz"
+import { NameHistoryLocal } from "@/components/name-history-local"
 
 export default function HomePage() {
   return (
@@ -87,6 +88,7 @@ export default function HomePage() {
           <RecentClaimsFeed />
         </div>
         <NameQuiz />
+        <NameHistoryLocal />
       </div>
       
       <Toaster />
