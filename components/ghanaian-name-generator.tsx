@@ -20,6 +20,7 @@ import { ExportNameCardButton } from "@/components/export-name-card"
 import { NameRecommendations } from "@/components/name-recommendations"
 import { DailyNameGenerator } from "@/components/daily-name-generator"
 import { SocialShare } from "@/components/social-share"
+import { NameDayCalculator } from "@/components/name-day-calculator"
 
 type GenerationMode = 'simple' | 'ai'
 
