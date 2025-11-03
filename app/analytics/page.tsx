@@ -291,6 +291,9 @@ export default function AnalyticsPage() {
         <div className="text-center text-white/60 text-sm">
           Last updated: {new Date(analytics.timestamp).toLocaleString()}
         </div>
+
+        {/* Trends Chart */}
+        <TrendsChart />
       </div>
     </div>
   )
