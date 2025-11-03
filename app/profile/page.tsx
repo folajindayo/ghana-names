@@ -10,6 +10,7 @@ import { Wallet, Download, Share2, ExternalLink, ArrowLeft, MapPin, BookOpen, Us
 import { GiftNameModal } from '@/components/gift-name-modal'
 import { ExportPDFButton } from '@/components/export-pdf-button'
 import { WalletConnect } from '@/components/wallet-connect'
+import { NameBackupRestore } from '@/components/name-backup-restore'
 import Link from 'next/link'
 
 interface NameCard {
