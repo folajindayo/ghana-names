@@ -851,6 +851,9 @@ export function GhanaianNameGenerator() {
         </TabsContent>
       </Tabs>
 
+      {/* Name Day Calculator */}
+      <NameDayCalculator />
+
       {/* Recommendations */}
       {lastName.trim() && (
         <NameRecommendations
