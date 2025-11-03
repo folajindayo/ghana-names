@@ -795,6 +795,24 @@ export function GhanaianNameGenerator() {
                     name={generatedName.name}
                     meaning={generatedName.meaning}
                   />
+
+                  {/* Similar Name Suggestions */}
+                  <NameSuggestionsSimilar
+                    name={generatedName.name}
+                    lastName={lastName}
+                    tribe={generatedName.tribe}
+                    gender={generatedName.gender}
+                    onNameSelected={(name, meaning, tribe) => {
+                      setGeneratedName({
+                        name,
+                        meaning,
+                        tribe: tribe || generatedName.tribe,
+                        gender: generatedName.gender,
+                      })
+                      setAiGeneratedName(null)
+                      setMode('simple')
+                    }}
+                  />
                   
                   {/* Voting and Comments */}
                   <div className="space-y-4 pt-4 border-t border-white/10">
