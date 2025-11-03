@@ -87,6 +87,7 @@ export function GhanaianNameGenerator() {
         const name = getRandomName(gender, lastName)
         setGeneratedName(name)
         setIsGenerating(false)
+        addToLocalHistory(name, lastName)
       }, 500)
     } else {
       // AI generation mode
