@@ -30,6 +30,9 @@ import { NameComments } from "@/components/name-comments"
 import { NameRoulette } from "@/components/name-roulette"
 import { WhatsAppShare } from "@/components/whatsapp-share"
 import { NameMeaningDeepDive } from "@/components/name-meaning-deepdive"
+import { NameHistoryLocal, addToLocalHistory } from "@/components/name-history-local"
+import { NamePopularityPredictor } from "@/components/name-popularity-predictor"
+import { NameTags } from "@/components/name-tags"
 
 type GenerationMode = 'simple' | 'ai'
 
@@ -716,6 +719,15 @@ export function GhanaianNameGenerator() {
                   meaning={generatedName.meaning}
                   tribe={generatedName.tribe}
                   gender={generatedName.gender}
+                />
+                <NamePopularityPredictor
+                  name={generatedName.name}
+                  tribe={generatedName.tribe}
+                  gender={generatedName.gender}
+                />
+                <NameTags
+                  name={generatedName.name}
+                  lastName={lastName}
                 />
                 <div className="space-y-3 pt-2">
                   <div className="flex justify-center gap-2 flex-wrap">
