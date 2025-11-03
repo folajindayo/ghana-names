@@ -791,6 +791,20 @@ export function GhanaianNameGenerator() {
                         ipfsUrl={claimedCard?.ipfsUrl}
                       />
                     </div>
+                    
+                    {/* Voting and Comments */}
+                    <div className="space-y-4 pt-4 border-t border-white/10">
+                      <NameVoting
+                        nameCardId={claimedCard?._id}
+                        name={aiGeneratedName.name.split(' (')[0]}
+                        lastName={lastName}
+                      />
+                      <NameComments
+                        nameCardId={claimedCard?._id}
+                        name={aiGeneratedName.name.split(' (')[0]}
+                        lastName={lastName}
+                      />
+                    </div>
                   </div>
                 </div>
                 

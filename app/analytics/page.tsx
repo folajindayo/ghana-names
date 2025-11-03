@@ -115,12 +115,9 @@ export default function AnalyticsPage() {
           </CardContent>
         </Card>
 
-        {/* Trends Chart */}
-        <TrendsChart />
       </div>
     </div>
   )
-}
 
   return (
     <div
