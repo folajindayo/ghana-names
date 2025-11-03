@@ -5,10 +5,11 @@ import { GhanaianNameGenerator } from "@/components/ghanaian-name-generator"
 import { Toaster } from "@/components/ui/toaster"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { User, Compass, Heart, BarChart3, Clock, FolderPlus, MapPin, TrendingUp } from "lucide-react"
+import { User, Compass, Heart, BarChart3, Clock, FolderPlus, MapPin, TrendingUp, Trophy } from "lucide-react"
 import { PopularNames } from "@/components/popular-names"
 import { FeaturedNames } from "@/components/featured-names"
 import { RecentClaimsFeed } from "@/components/recent-claims-feed"
+import { NameQuiz } from "@/components/name-quiz"
 
 export default function HomePage() {
   return (
@@ -70,6 +71,12 @@ export default function HomePage() {
             My Stats
           </Button>
         </Link>
+        <Link href="/leaderboard">
+          <Button variant="outline" className="bg-white/10 border-white/20 text-white">
+            <Trophy className="mr-2 h-4 w-4" />
+            Leaderboard
+          </Button>
+        </Link>
       </div>
       
       <div className="max-w-7xl mx-auto w-full space-y-6">
@@ -79,6 +86,7 @@ export default function HomePage() {
           <PopularNames />
           <RecentClaimsFeed />
         </div>
+        <NameQuiz />
       </div>
       
       <Toaster />

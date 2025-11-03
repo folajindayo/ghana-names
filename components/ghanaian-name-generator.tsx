@@ -25,6 +25,8 @@ import { NameSimilarityFinder } from "@/components/name-similarity-finder"
 import { NameGeneratorPresets } from "@/components/name-generator-presets"
 import { NameOriginStory } from "@/components/name-origin-story"
 import { EmailShare } from "@/components/email-share"
+import { NameVoting } from "@/components/name-voting"
+import { NameComments } from "@/components/name-comments"
 
 type GenerationMode = 'simple' | 'ai'
 
@@ -725,6 +727,20 @@ export function GhanaianNameGenerator() {
                       meaning={generatedName.meaning}
                       tribe={generatedName.tribe}
                       ipfsUrl={claimedCard?.ipfsUrl}
+                    />
+                  </div>
+                  
+                  {/* Voting and Comments */}
+                  <div className="space-y-4 pt-4 border-t border-white/10">
+                    <NameVoting
+                      nameCardId={claimedCard?._id}
+                      name={generatedName.name}
+                      lastName={lastName}
+                    />
+                    <NameComments
+                      nameCardId={claimedCard?._id}
+                      name={generatedName.name}
+                      lastName={lastName}
                     />
                   </div>
                 </div>

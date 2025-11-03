@@ -112,12 +112,15 @@ export default function AnalyticsPage() {
                 <RefreshCw className="mr-2 h-4 w-4" />
                 Retry
               </Button>
-            </CardContent>
-          </Card>
-        </div>
+          </CardContent>
+        </Card>
+
+        {/* Trends Chart */}
+        <TrendsChart />
       </div>
-    )
-  }
+    </div>
+  )
+}
 
   return (
     <div
