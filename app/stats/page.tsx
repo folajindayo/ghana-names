@@ -283,6 +283,12 @@ export default function StatsPage() {
 
         {/* User Name Stats */}
         <UserNameStats />
+
+        {/* Statistics Visualization */}
+        <NameStatsVisualization />
+
+        {/* Day Name Calendar */}
+        <NameCalendarView />
       </div>
     </div>
   )
