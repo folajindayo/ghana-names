@@ -33,6 +33,8 @@ import { NameMeaningDeepDive } from "@/components/name-meaning-deepdive"
 import { NameHistoryLocal, addToLocalHistory } from "@/components/name-history-local"
 import { NamePopularityPredictor } from "@/components/name-popularity-predictor"
 import { NameTags } from "@/components/name-tags"
+import { NameAudioRecorder } from "@/components/name-audio-recorder"
+import { NameShareLink } from "@/components/name-share-link"
 
 type GenerationMode = 'simple' | 'ai'
 
@@ -770,6 +772,23 @@ export function GhanaianNameGenerator() {
                       tribe={generatedName.tribe}
                     />
                   </div>
+                  
+                  {/* Share Link */}
+                  <div className="pt-2">
+                    <NameShareLink
+                      name={generatedName.name}
+                      lastName={lastName}
+                      meaning={generatedName.meaning}
+                      tribe={generatedName.tribe}
+                      gender={generatedName.gender}
+                    />
+                  </div>
+
+                  {/* Audio Recorder */}
+                  <NameAudioRecorder
+                    name={generatedName.name}
+                    meaning={generatedName.meaning}
+                  />
                   
                   {/* Voting and Comments */}
                   <div className="space-y-4 pt-4 border-t border-white/10">
