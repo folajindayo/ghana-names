@@ -6,6 +6,7 @@ import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { BarChart3, TrendingUp, Users, Heart, Sparkles, ArrowLeft, RefreshCw } from 'lucide-react'
 import Link from 'next/link'
+import { TrendsChart } from '@/components/trends-chart'
 
 interface Analytics {
   overview: {
