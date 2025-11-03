@@ -22,6 +22,9 @@ import { DailyNameGenerator } from "@/components/daily-name-generator"
 import { SocialShare } from "@/components/social-share"
 import { NameDayCalculator } from "@/components/name-day-calculator"
 import { NameSimilarityFinder } from "@/components/name-similarity-finder"
+import { NameGeneratorPresets } from "@/components/name-generator-presets"
+import { NameOriginStory } from "@/components/name-origin-story"
+import { EmailShare } from "@/components/email-share"
 
 type GenerationMode = 'simple' | 'ai'
 
@@ -492,6 +495,18 @@ export function GhanaianNameGenerator() {
         </div>
       </div>
 
+      {/* Name Generator Presets */}
+      {lastName.trim() && (
+        <NameGeneratorPresets
+          lastName={lastName}
+          onNameGenerated={(name) => {
+            setGeneratedName(name)
+            setAiGeneratedName(null)
+            setMode('simple')
+          }}
+        />
+      )}
+
       {/* Daily Name Generator */}
       {lastName.trim() && (
         <DailyNameGenerator
@@ -695,8 +710,15 @@ export function GhanaianNameGenerator() {
                       gender={generatedName.gender}
                     />
                   </div>
-                  <div className="flex justify-center">
+                  <div className="flex justify-center gap-2 flex-wrap">
                     <SocialShare
+                      name={generatedName.name}
+                      lastName={lastName}
+                      meaning={generatedName.meaning}
+                      tribe={generatedName.tribe}
+                      ipfsUrl={claimedCard?.ipfsUrl}
+                    />
+                    <EmailShare
                       name={generatedName.name}
                       lastName={lastName}
                       meaning={generatedName.meaning}
@@ -737,8 +759,14 @@ export function GhanaianNameGenerator() {
                         explanation={aiGeneratedName.explanation}
                       />
                     </div>
-                    <div className="flex justify-center">
+                    <div className="flex justify-center gap-2 flex-wrap">
                       <SocialShare
+                        name={aiGeneratedName.name.split(' (')[0]}
+                        lastName={lastName}
+                        meaning={aiGeneratedName.meaning}
+                        ipfsUrl={claimedCard?.ipfsUrl}
+                      />
+                      <EmailShare
                         name={aiGeneratedName.name.split(' (')[0]}
                         lastName={lastName}
                         meaning={aiGeneratedName.meaning}
