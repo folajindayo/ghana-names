@@ -173,17 +173,19 @@ export function BatchNameGenerator() {
 
         {generatedNames.length > 0 && (
           <div className="space-y-4 mt-6">
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between flex-wrap gap-2">
               <h3 className="text-white font-semibold">Generated Names ({generatedNames.length})</h3>
-              <Button
-                onClick={handleExport}
-                variant="outline"
-                size="sm"
-                className="bg-white/10 border-white/20 text-white hover:bg-white/20"
-              >
-                <Download className="mr-2 h-4 w-4" />
-                Export JSON
-              </Button>
+              <ExportFormats
+                data={generatedNames.map(n => ({
+                  name: n.name,
+                  lastName,
+                  meaning: n.meaning,
+                  tribe: n.tribe,
+                  gender: n.gender,
+                  explanation: n.explanation,
+                }))}
+                filename="ghanaian-names-batch"
+              />
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-h-96 overflow-y-auto">
