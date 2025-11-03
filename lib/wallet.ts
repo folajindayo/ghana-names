@@ -2,9 +2,10 @@ import { createConfig, http } from 'wagmi'
 import { mainnet, arbitrum, polygon } from 'wagmi/chains'
 import { createAppKit } from '@reown/appkit/react'
 import { WagmiAdapter } from '@reown/appkit-adapter-wagmi'
+import { getWalletConnectProjectIdSafe } from './wallet-config'
 
 // Define the project ID
-const projectId = process.env.NEXT_PUBLIC_REOWN_PROJECT_ID || '5c4d877bba011237894e33bce008ddd1'
+const projectId = getWalletConnectProjectIdSafe()
 
 // Configure networks
 const networks = [mainnet, arbitrum, polygon]

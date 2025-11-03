@@ -5,8 +5,9 @@ import { createAppKit } from '@reown/appkit/react'
 import { WagmiAdapter } from '@reown/appkit-adapter-wagmi'
 import { mainnet } from 'wagmi/chains'
 import { createConfig, http } from 'wagmi'
+import { getWalletConnectProjectIdSafe } from './wallet-config'
 
-const projectId = process.env.NEXT_PUBLIC_REOWN_PROJECT_ID || '5c4d877bba011237894e33bce008ddd1'
+const projectId = getWalletConnectProjectIdSafe()
 
 // Create wagmi config
 export const wagmiConfig = createConfig({
@@ -32,7 +33,7 @@ const metadata = {
 // Initialize AppKit only on client side
 let appKitInitialized = false
 
-if (typeof window !== 'undefined' && !appKitInitialized) {
+if (typeof window !== 'undefined' && !appKitInitialized && projectId) {
   createAppKit({
     adapters: [wagmiAdapter],
     networks: [mainnet],

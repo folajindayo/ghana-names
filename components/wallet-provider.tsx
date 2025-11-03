@@ -7,8 +7,7 @@ import { WagmiAdapter } from '@reown/appkit-adapter-wagmi'
 import { mainnet } from 'wagmi/chains'
 import { createConfig, http } from 'wagmi'
 import { useState, useEffect } from 'react'
-
-const projectId = process.env.NEXT_PUBLIC_REOWN_PROJECT_ID || '5c4d877bba011237894e33bce008ddd1'
+import { getWalletConnectProjectIdSafe } from '@/lib/wallet-config'
 
 // Create wagmi config
 const wagmiConfig = createConfig({
@@ -27,6 +26,14 @@ export function WalletProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     // Initialize AppKit only on client side
     if (typeof window !== 'undefined' && !appKitInitialized) {
+      const projectId = getWalletConnectProjectIdSafe()
+      
+      if (!projectId) {
+        console.error('WalletConnect Project ID not configured')
+        setAppKitReady(true) // Allow app to continue without wallet
+        return
+      }
+
       const wagmiAdapter = new WagmiAdapter({
         networks: [mainnet],
         projectId,

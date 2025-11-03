@@ -3,12 +3,12 @@
  * Uses @walletconnect/core for protocol-level control
  */
 
-import type { IWalletConnectOptions } from '@walletconnect/types'
+import type { WalletConnectOptions } from '@walletconnect/types'
 import type { CoreTypes } from '@walletconnect/types'
 
 // Core WalletConnect functionality using @walletconnect/core
 export class WalletConnectCore {
-  private core: CoreTypes.ICore | null = null
+  private core: CoreTypes.Core | null = null
   private projectId: string
 
   constructor(projectId: string) {
@@ -26,7 +26,7 @@ export class WalletConnectCore {
       // Dynamic import to avoid SSR issues
       const { Core } = await import('@walletconnect/core')
       
-      const options: IWalletConnectOptions = {
+      const options: WalletConnectOptions = {
         projectId: this.projectId,
         relayUrl: 'wss://relay.walletconnect.com',
         metadata: {
@@ -71,7 +71,14 @@ let walletConnectCoreInstance: WalletConnectCore | null = null
 
 export function getWalletConnectCore() {
   if (!walletConnectCoreInstance) {
-    const projectId = process.env.NEXT_PUBLIC_REOWN_PROJECT_ID || '5c4d877bba011237894e33bce008ddd1'
+    // Dynamic import to avoid SSR issues
+    const { getWalletConnectProjectIdSafe } = require('./wallet-config')
+    const projectId = getWalletConnectProjectIdSafe()
+    
+    if (!projectId) {
+      throw new Error('WalletConnect Project ID not configured. Please set NEXT_PUBLIC_REOWN_PROJECT_ID in .env.local')
+    }
+    
     walletConnectCoreInstance = new WalletConnectCore(projectId)
   }
   return walletConnectCoreInstance
