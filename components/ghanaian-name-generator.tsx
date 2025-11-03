@@ -35,6 +35,8 @@ import { NamePopularityPredictor } from "@/components/name-popularity-predictor"
 import { NameTags } from "@/components/name-tags"
 import { NameAudioRecorder } from "@/components/name-audio-recorder"
 import { NameShareLink } from "@/components/name-share-link"
+import { NameIPAGuide } from "@/components/name-ipa-guide"
+import { NameSuggestionsSimilar } from "@/components/name-suggestions-similar"
 
 type GenerationMode = 'simple' | 'ai'
 
@@ -714,6 +716,10 @@ export function GhanaianNameGenerator() {
                 <PronunciationGuide
                   name={generatedName.name}
                   meaning={generatedName.meaning}
+                  tribe={generatedName.tribe}
+                />
+                <NameIPAGuide
+                  name={generatedName.name}
                   tribe={generatedName.tribe}
                 />
                 <NameOriginStory name={generatedName.name} />
