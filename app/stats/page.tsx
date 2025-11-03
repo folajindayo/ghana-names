@@ -191,28 +191,11 @@ export default function StatsPage() {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              <div className={`p-4 rounded-lg ${stats.achievements.collector ? 'bg-yellow-500/20 border-yellow-500/30 border' : 'bg-white/5'}`}>
-                <Trophy className={`h-6 w-6 mb-2 ${stats.achievements.collector ? 'text-yellow-400' : 'text-white/30'}`} />
-                <p className="text-sm font-semibold text-white">Collector</p>
-                <p className="text-xs text-white/60">10+ names</p>
-              </div>
-              <div className={`p-4 rounded-lg ${stats.achievements.enthusiast ? 'bg-blue-500/20 border-blue-500/30 border' : 'bg-white/5'}`}>
-                <Trophy className={`h-6 w-6 mb-2 ${stats.achievements.enthusiast ? 'text-blue-400' : 'text-white/30'}`} />
-                <p className="text-sm font-semibold text-white">Enthusiast</p>
-                <p className="text-xs text-white/60">5+ names</p>
-              </div>
-              <div className={`p-4 rounded-lg ${stats.achievements.sharer ? 'bg-purple-500/20 border-purple-500/30 border' : 'bg-white/5'}`}>
-                <Trophy className={`h-6 w-6 mb-2 ${stats.achievements.sharer ? 'text-purple-400' : 'text-white/30'}`} />
-                <p className="text-sm font-semibold text-white">Sharer</p>
-                <p className="text-xs text-white/60">3+ gifts</p>
-              </div>
-              <div className={`p-4 rounded-lg ${stats.achievements.popular ? 'bg-green-500/20 border-green-500/30 border' : 'bg-white/5'}`}>
-                <Trophy className={`h-6 w-6 mb-2 ${stats.achievements.popular ? 'text-green-400' : 'text-white/30'}`} />
-                <p className="text-sm font-semibold text-white">Popular</p>
-                <p className="text-xs text-white/60">5+ received</p>
-              </div>
-            </div>
+            <UserBadges
+              achievements={stats.achievements}
+              totalNames={stats.overview.totalNamesClaimed}
+              totalGifts={stats.overview.totalGiftsSent}
+            />
           </CardContent>
         </Card>
 

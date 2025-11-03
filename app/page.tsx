@@ -6,6 +6,8 @@ import { Toaster } from "@/components/ui/toaster"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { User, Compass, Heart, BarChart3, Clock, FolderPlus, MapPin, TrendingUp } from "lucide-react"
+import { PopularNames } from "@/components/popular-names"
+import { FeaturedNames } from "@/components/featured-names"
 
 export default function HomePage() {
   return (
@@ -68,7 +70,13 @@ export default function HomePage() {
           </Button>
         </Link>
       </div>
-      <GhanaianNameGenerator />
+      
+      <div className="max-w-7xl mx-auto w-full space-y-6">
+        <FeaturedNames />
+        <GhanaianNameGenerator />
+        <PopularNames />
+      </div>
+      
       <Toaster />
     </div>
   )
