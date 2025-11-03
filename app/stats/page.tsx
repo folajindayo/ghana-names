@@ -280,6 +280,9 @@ export default function StatsPage() {
             )}
           </CardContent>
         </Card>
+
+        {/* User Name Stats */}
+        <UserNameStats />
       </div>
     </div>
   )
