@@ -8,6 +8,7 @@ import { MapPin, BookOpen, Users, Download, Share2, ExternalLink, ArrowLeft } fr
 import Link from 'next/link'
 import { NameSearchFilter } from '@/components/name-search-filter'
 import { NameSearchAutocomplete } from '@/components/name-search-autocomplete'
+import { NameSearchFilters, type SearchFilters } from '@/components/name-search-filters'
 
 interface NameCard {
   _id: string
