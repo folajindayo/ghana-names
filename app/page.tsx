@@ -5,7 +5,7 @@ import { GhanaianNameGenerator } from "@/components/ghanaian-name-generator"
 import { Toaster } from "@/components/ui/toaster"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { User, Compass, Heart, BarChart3, Clock, FolderPlus, MapPin, TrendingUp, Trophy } from "lucide-react"
+import { User, Compass, Heart, BarChart3, Clock, FolderPlus, MapPin, TrendingUp, Trophy, Menu, X } from "lucide-react"
 import { PopularNames } from "@/components/popular-names"
 import { FeaturedNames } from "@/components/featured-names"
 import { RecentClaimsFeed } from "@/components/recent-claims-feed"
@@ -13,11 +13,26 @@ import { NameQuiz } from "@/components/name-quiz"
 import { NameHistoryLocal } from "@/components/name-history-local"
 import { NameWishlist } from "@/components/name-wishlist"
 import { NameFavoriteCategories } from "@/components/name-favorite-categories"
+import { useState } from "react"
 
 export default function HomePage() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
+  const navLinks = [
+    { href: "/profile", icon: User, label: "Profile" },
+    { href: "/explore", icon: Compass, label: "Explore" },
+    { href: "/favorites", icon: Heart, label: "Favorites" },
+    { href: "/analytics", icon: BarChart3, label: "Analytics" },
+    { href: "/history", icon: Clock, label: "History" },
+    { href: "/collections", icon: FolderPlus, label: "Collections" },
+    { href: "/tribes", icon: MapPin, label: "Tribes" },
+    { href: "/stats", icon: TrendingUp, label: "My Stats" },
+    { href: "/leaderboard", icon: Trophy, label: "Leaderboard" },
+  ]
+
   return (
     <div
-      className="min-h-screen flex items-center justify-center p-4"
+      className="min-h-screen"
       style={{
         backgroundImage: "url('/bg.jpeg')",
         backgroundSize: "cover",
@@ -25,76 +40,137 @@ export default function HomePage() {
         backgroundRepeat: "no-repeat",
       }}
     >
-      <div className="absolute top-4 right-4 flex gap-2">
-        <Link href="/favorites">
-          <Button variant="outline" className="bg-white/10 border-white/20 text-white">
-            <Heart className="mr-2 h-4 w-4" />
-            Favorites
-          </Button>
-        </Link>
-        <Link href="/profile">
-          <Button variant="outline" className="bg-white/10 border-white/20 text-white">
-            <User className="mr-2 h-4 w-4" />
-            Profile
-          </Button>
-        </Link>
-        <Link href="/explore">
-          <Button variant="outline" className="bg-white/10 border-white/20 text-white">
-            <Compass className="mr-2 h-4 w-4" />
-            Explore
-          </Button>
-        </Link>
-        <Link href="/analytics">
-          <Button variant="outline" className="bg-white/10 border-white/20 text-white">
-            <BarChart3 className="mr-2 h-4 w-4" />
-            Analytics
-          </Button>
-        </Link>
-        <Link href="/history">
-          <Button variant="outline" className="bg-white/10 border-white/20 text-white">
-            <Clock className="mr-2 h-4 w-4" />
-            History
-          </Button>
-        </Link>
-        <Link href="/collections">
-          <Button variant="outline" className="bg-white/10 border-white/20 text-white">
-            <FolderPlus className="mr-2 h-4 w-4" />
-            Collections
-          </Button>
-        </Link>
-        <Link href="/tribes">
-          <Button variant="outline" className="bg-white/10 border-white/20 text-white">
-            <MapPin className="mr-2 h-4 w-4" />
-            Tribes
-          </Button>
-        </Link>
-        <Link href="/stats">
-          <Button variant="outline" className="bg-white/10 border-white/20 text-white">
-            <TrendingUp className="mr-2 h-4 w-4" />
-            My Stats
-          </Button>
-        </Link>
-        <Link href="/leaderboard">
-          <Button variant="outline" className="bg-white/10 border-white/20 text-white">
-            <Trophy className="mr-2 h-4 w-4" />
-            Leaderboard
-          </Button>
-        </Link>
-      </div>
-      
-      <div className="max-w-7xl mx-auto w-full space-y-6">
-        <FeaturedNames />
-        <GhanaianNameGenerator />
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <PopularNames />
-          <RecentClaimsFeed />
+      {/* Header Navigation */}
+      <header className="sticky top-0 z-50 bg-black/30 backdrop-blur-md border-b border-white/20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16">
+            {/* Logo/Brand */}
+            <Link href="/" className="flex items-center space-x-2">
+              <span className="text-2xl font-bold text-yellow-400">🇬🇭</span>
+              <span className="text-xl font-bold text-white">Ghana Names</span>
+            </Link>
+
+            {/* Desktop Navigation */}
+            <nav className="hidden md:flex items-center gap-2">
+              {navLinks.map((link) => {
+                const Icon = link.icon
+                return (
+                  <Link key={link.href} href={link.href}>
+                    <Button variant="outline" size="sm" className="bg-white/10 border-white/20 text-white hover:bg-white/20">
+                      <Icon className="mr-2 h-4 w-4" />
+                      {link.label}
+                    </Button>
+                  </Link>
+                )
+              })}
+            </nav>
+
+            {/* Mobile Menu Button */}
+            <Button
+              variant="ghost"
+              size="icon"
+              className="md:hidden text-white hover:bg-white/20"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            >
+              {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </Button>
+          </div>
+
+          {/* Mobile Navigation */}
+          {mobileMenuOpen && (
+            <nav className="md:hidden py-4 border-t border-white/20">
+              <div className="grid grid-cols-2 gap-2">
+                {navLinks.map((link) => {
+                  const Icon = link.icon
+                  return (
+                    <Link key={link.href} href={link.href} onClick={() => setMobileMenuOpen(false)}>
+                      <Button variant="outline" className="w-full bg-white/10 border-white/20 text-white hover:bg-white/20">
+                        <Icon className="mr-2 h-4 w-4" />
+                        {link.label}
+                      </Button>
+                    </Link>
+                  )
+                })}
+              </div>
+            </nav>
+          )}
         </div>
-        <NameQuiz />
-        <NameHistoryLocal />
-        <NameWishlist />
-        <NameFavoriteCategories />
-      </div>
-      
+      </header>
+
+      {/* Main Content */}
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="space-y-8">
+          {/* Hero Section - Featured Names */}
+          <section>
+            <FeaturedNames />
+          </section>
+
+          {/* Main Generator Section */}
+          <section className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+            <GhanaianNameGenerator />
+          </section>
+
+          {/* Popular Content Section */}
+          <section>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <PopularNames />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <RecentClaimsFeed />
+              </div>
+            </div>
+          </section>
+
+          {/* Interactive Features Section */}
+          <section>
+            <h2 className="text-2xl font-bold text-white mb-4 px-2">Interactive Features</h2>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameQuiz />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameHistoryLocal />
+              </div>
+            </div>
+          </section>
+
+          {/* Personal Collections Section */}
+          <section>
+            <h2 className="text-2xl font-bold text-white mb-4 px-2">Your Collections</h2>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameWishlist />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameFavoriteCategories />
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+
+      {/* Footer */}
+      <footer className="mt-16 bg-black/30 backdrop-blur-md border-t border-white/20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <div className="text-white/70 text-sm">
+              © 2024 Ghana Names Generator. Discover your Ghanaian identity.
+            </div>
+            <div className="flex items-center gap-4">
+              {navLinks.slice(0, 4).map((link) => {
+                const Icon = link.icon
+                return (
+                  <Link key={link.href} href={link.href} className="text-white/70 hover:text-white transition-colors">
+                    <Icon className="h-5 w-5" />
+                  </Link>
+                )
+              })}
+            </div>
+          </div>
+        </div>
+      </footer>
+
       <Toaster />
     </div>
   )
