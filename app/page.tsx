@@ -13,6 +13,11 @@ import { NameQuiz } from "@/components/name-quiz"
 import { NameHistoryLocal } from "@/components/name-history-local"
 import { NameWishlist } from "@/components/name-wishlist"
 import { NameFavoriteCategories } from "@/components/name-favorite-categories"
+import { NameOfTheDay } from "@/components/name-of-the-day"
+import { NameQuickStats } from "@/components/name-quick-stats"
+import { NameDiscoveryCarousel } from "@/components/name-discovery-carousel"
+import { NameGeneratorShortcuts } from "@/components/name-generator-shortcuts"
+import { NameBookmarkWidget } from "@/components/name-bookmark-widget"
 import { useState } from "react"
 
 export default function HomePage() {
@@ -100,9 +105,24 @@ export default function HomePage() {
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="space-y-8">
-          {/* Hero Section - Featured Names */}
+          {/* Hero Section - Featured Names & Name of the Day */}
           <section>
-            <FeaturedNames />
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+              <div className="lg:col-span-2">
+                <FeaturedNames />
+              </div>
+              <div>
+                <NameOfTheDay />
+              </div>
+            </div>
+          </section>
+
+          {/* Quick Stats & Discovery */}
+          <section>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <NameQuickStats />
+              <NameDiscoveryCarousel />
+            </div>
           </section>
 
           {/* Main Generator Section */}
@@ -138,12 +158,28 @@ export default function HomePage() {
           {/* Personal Collections Section */}
           <section>
             <h2 className="text-2xl font-bold text-white mb-4 px-2">Your Collections</h2>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
               <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
                 <NameWishlist />
               </div>
               <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
                 <NameFavoriteCategories />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameBookmarkWidget />
+              </div>
+            </div>
+          </section>
+
+          {/* Tools & Shortcuts Section */}
+          <section>
+            <h2 className="text-2xl font-bold text-white mb-4 px-2">Tools & Shortcuts</h2>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameGeneratorShortcuts />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                {/* Placeholder for future tool */}
               </div>
             </div>
           </section>
