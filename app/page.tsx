@@ -18,6 +18,10 @@ import { NameQuickStats } from "@/components/name-quick-stats"
 import { NameDiscoveryCarousel } from "@/components/name-discovery-carousel"
 import { NameGeneratorShortcuts } from "@/components/name-generator-shortcuts"
 import { NameBookmarkWidget } from "@/components/name-bookmark-widget"
+import { NameTrendingWidget } from "@/components/name-trending-widget"
+import { NameRandomGenerator } from "@/components/name-random-generator"
+import { NameSearchWidget } from "@/components/name-search-widget"
+import { NameCultureTips } from "@/components/name-culture-tips"
 import { useState } from "react"
 
 export default function HomePage() {
@@ -122,6 +126,30 @@ export default function HomePage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               <NameQuickStats />
               <NameDiscoveryCarousel />
+            </div>
+          </section>
+
+          {/* Trending & Random Generator */}
+          <section>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameTrendingWidget />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameRandomGenerator />
+              </div>
+            </div>
+          </section>
+
+          {/* Search & Culture Tips */}
+          <section>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameSearchWidget />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameCultureTips />
+              </div>
             </div>
           </section>
 
