@@ -40,6 +40,9 @@ import { NameSuggestionsSimilar } from "@/components/name-suggestions-similar"
 import { NamePronunciationPractice } from "@/components/name-pronunciation-practice"
 import { NameCulturalEvents } from "@/components/name-cultural-events"
 import { NameRandomizerEnhanced } from "@/components/name-randomizer-enhanced"
+import { NameOccasionPresets } from "@/components/name-occasion-presets"
+import { NameComparisonMatrix } from "@/components/name-comparison-matrix"
+import { NameShareCount, incrementNameShareCount } from "@/components/name-share-count"
 
 type GenerationMode = 'simple' | 'ai'
 
@@ -550,6 +553,21 @@ export function GhanaianNameGenerator() {
 
       {/* Cultural Events */}
       <NameCulturalEvents />
+
+      {/* Occasion Presets */}
+      {lastName.trim() && (
+        <NameOccasionPresets
+          lastName={lastName}
+          onNameGenerated={(name) => {
+            setGeneratedName(name)
+            setAiGeneratedName(null)
+            setMode('simple')
+          }}
+        />
+      )}
+
+      {/* Comparison Matrix */}
+      <NameComparisonMatrix />
 
       {/* Daily Name Generator */}
       {lastName.trim() && (
