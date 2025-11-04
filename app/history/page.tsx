@@ -6,6 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { WalletConnect } from '@/components/wallet-connect'
+import { NameHistoryTimeline } from '@/components/name-history-timeline'
 import { Clock, ArrowLeft, Download, Sparkles } from 'lucide-react'
 import { useToast } from '@/hooks/use-toast'
 import Link from 'next/link'
