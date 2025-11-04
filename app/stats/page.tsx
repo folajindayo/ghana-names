@@ -11,6 +11,7 @@ import Link from 'next/link'
 import { UserBadges } from '@/components/user-badges'
 import { NameStatsVisualization } from '@/components/name-stats-visualization'
 import { NameCalendarView } from '@/components/name-calendar-view'
+import { NameAchievements } from '@/components/name-achievements'
 
 interface UserStats {
   overview: {
@@ -292,6 +293,9 @@ export default function StatsPage() {
 
         {/* Day Name Calendar */}
         <NameCalendarView />
+
+        {/* Achievements */}
+        <NameAchievements />
       </div>
     </div>
   )
