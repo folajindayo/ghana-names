@@ -179,6 +179,9 @@ export default function HistoryPage() {
             ))}
           </div>
         )}
+
+        {/* Timeline View */}
+        <NameHistoryTimeline />
       </div>
     </div>
   )
