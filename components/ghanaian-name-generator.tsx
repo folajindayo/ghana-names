@@ -820,13 +820,18 @@ export function GhanaianNameGenerator() {
                   </div>
                   
                   {/* Share Link */}
-                  <div className="pt-2">
+                  <div className="pt-2 space-y-2">
                     <NameShareLink
                       name={generatedName.name}
                       lastName={lastName}
                       meaning={generatedName.meaning}
                       tribe={generatedName.tribe}
                       gender={generatedName.gender}
+                    />
+                    <NameShareCount
+                      nameCardId={claimedCard?._id}
+                      name={generatedName.name}
+                      lastName={lastName}
                     />
                   </div>
 
