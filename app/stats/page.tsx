@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button'
 import { WalletConnect } from '@/components/wallet-connect'
 import { BarChart3, Trophy, ArrowLeft, Sparkles, Heart, Gift, Package, MapPin, Users } from 'lucide-react'
 import Link from 'next/link'
+import { UserBadges } from '@/components/user-badges'
 import { NameStatsVisualization } from '@/components/name-stats-visualization'
 import { NameCalendarView } from '@/components/name-calendar-view'
 
