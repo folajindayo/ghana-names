@@ -740,6 +740,10 @@ export function GhanaianNameGenerator() {
                   name={generatedName.name}
                   tribe={generatedName.tribe}
                 />
+                <NamePronunciationPractice
+                  name={generatedName.name}
+                  correctPronunciation={generatedName.name}
+                />
                 <NameOriginStory name={generatedName.name} />
                 <NameMeaningDeepDive
                   name={generatedName.name}
