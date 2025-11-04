@@ -12,6 +12,7 @@ import { RecentClaimsFeed } from "@/components/recent-claims-feed"
 import { NameQuiz } from "@/components/name-quiz"
 import { NameHistoryLocal } from "@/components/name-history-local"
 import { NameWishlist } from "@/components/name-wishlist"
+import { NameFavoriteCategories } from "@/components/name-favorite-categories"
 
 export default function HomePage() {
   return (
@@ -91,6 +92,7 @@ export default function HomePage() {
         <NameQuiz />
         <NameHistoryLocal />
         <NameWishlist />
+        <NameFavoriteCategories />
       </div>
       
       <Toaster />
