@@ -37,6 +37,9 @@ import { NameAudioRecorder } from "@/components/name-audio-recorder"
 import { NameShareLink } from "@/components/name-share-link"
 import { NameIPAGuide } from "@/components/name-ipa-guide"
 import { NameSuggestionsSimilar } from "@/components/name-suggestions-similar"
+import { NamePronunciationPractice } from "@/components/name-pronunciation-practice"
+import { NameCulturalEvents } from "@/components/name-cultural-events"
+import { NameRandomizerEnhanced } from "@/components/name-randomizer-enhanced"
 
 type GenerationMode = 'simple' | 'ai'
 
@@ -532,6 +535,21 @@ export function GhanaianNameGenerator() {
           }}
         />
       )}
+
+      {/* Enhanced Randomizer */}
+      {lastName.trim() && (
+        <NameRandomizerEnhanced
+          lastName={lastName}
+          onNameGenerated={(name) => {
+            setGeneratedName(name)
+            setAiGeneratedName(null)
+            setMode('simple')
+          }}
+        />
+      )}
+
+      {/* Cultural Events */}
+      <NameCulturalEvents />
 
       {/* Daily Name Generator */}
       {lastName.trim() && (
