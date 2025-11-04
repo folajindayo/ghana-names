@@ -76,12 +76,12 @@ export function NameDiscoveryCarousel() {
             <p className="text-white/90 text-lg">"{currentName.meaning}"</p>
             <div className="flex justify-center gap-2">
               {currentName.tribe && (
-                <Badge variant="secondary" className="bg-blue-500/20 text-blue-300">
+                <Badge variant="secondary" className="bg-blue-600/40 text-blue-100 border-blue-400/50 font-semibold">
                   {currentName.tribe}
                 </Badge>
               )}
               {currentName.gender && (
-                <Badge variant="secondary" className="bg-green-500/20 text-green-300">
+                <Badge variant="secondary" className="bg-green-600/40 text-green-100 border-green-400/50 font-semibold">
                   {currentName.gender}
                 </Badge>
               )}
