@@ -5,7 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Input } from '@/components/ui/input'
-import { X, Plus, Compare, CheckCircle } from 'lucide-react'
+import { X, Plus, GitCompare, CheckCircle } from 'lucide-react'
 import { useToast } from '@/hooks/use-toast'
 import type { GhanaianName } from '@/lib/ghanaian-names'
 
@@ -78,7 +78,7 @@ export function NameComparisonMatrix() {
     <Card className="bg-white/10 backdrop-blur-sm border-white/20">
       <CardHeader>
         <CardTitle className="text-white flex items-center gap-2">
-          <Compare className="h-5 w-5 text-blue-400" />
+          <GitCompare className="h-5 w-5 text-blue-400" />
           Name Comparison Matrix
         </CardTitle>
         <CardDescription className="text-white/70">
