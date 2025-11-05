@@ -45,6 +45,12 @@ import { NameGeneratorAdvanced } from "@/components/name-name-generator-advanced
 import { NameStatsCompare } from "@/components/name-name-stats-compare"
 import { NamePalindromeChecker } from "@/components/name-palindrome-checker"
 import { NameWordPlay } from "@/components/name-word-play"
+import { NameColorAssociation } from "@/components/name-color-association"
+import { NameElementAnalyzer } from "@/components/name-element-analyzer"
+import { NameAstrologyCompatibility } from "@/components/name-astrology-compatibility"
+import { NameLuckyNumbers } from "@/components/name-lucky-numbers"
+import { NameLengthAnalyzer } from "@/components/name-name-length-analyzer"
+import { NameVibeChecker } from "@/components/name-vibe-checker"
 import { useState } from "react"
 
 export default function HomePage() {
@@ -318,6 +324,31 @@ export default function HomePage() {
               </div>
               <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
                 <NameWordPlay />
+              </div>
+            </div>
+          </section>
+
+          {/* Mystical & Spiritual Tools Section */}
+          <section>
+            <h2 className="text-2xl font-bold text-white mb-4 px-2">Mystical & Spiritual Tools</h2>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameColorAssociation />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameElementAnalyzer />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameAstrologyCompatibility />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameLuckyNumbers />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameLengthAnalyzer />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameVibeChecker />
               </div>
             </div>
           </section>
