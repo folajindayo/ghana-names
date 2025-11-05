@@ -35,6 +35,11 @@ import { NameCompatibilityChecker } from "@/components/name-compatibility-checke
 import { NameNumerology } from "@/components/name-numerology"
 import { NameNameDayFinder } from "@/components/name-name-day-finder"
 import { NameAnagramGenerator } from "@/components/name-anagram-generator"
+import { NamePhoneticGuide } from "@/components/name-phonetic-guide"
+import { NameVariationsGenerator } from "@/components/name-variations-generator"
+import { NameFrequencyAnalyzer } from "@/components/name-frequency-analyzer"
+import { NameRhythmAnalyzer } from "@/components/name-rhythm-analyzer"
+import { NameInitialGenerator } from "@/components/name-initial-generator"
 import { useState } from "react"
 
 export default function HomePage() {
@@ -271,6 +276,28 @@ export default function HomePage() {
               </div>
               <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
                 <NameAnagramGenerator />
+              </div>
+            </div>
+          </section>
+
+          {/* Analysis Tools Section */}
+          <section>
+            <h2 className="text-2xl font-bold text-white mb-4 px-2">Name Analysis Tools</h2>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NamePhoneticGuide />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameVariationsGenerator />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameFrequencyAnalyzer />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameRhythmAnalyzer />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameInitialGenerator />
               </div>
             </div>
           </section>
