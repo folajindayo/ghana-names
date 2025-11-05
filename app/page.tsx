@@ -25,6 +25,11 @@ import { NameCultureTips } from "@/components/name-culture-tips"
 import { NameRecentActivity } from "@/components/name-recent-activity"
 import { NameSuggestionsSmart } from "@/components/name-suggestions-smart"
 import { NameSocialProof } from "@/components/name-social-proof"
+import { NameBirthChart } from "@/components/name-birth-chart"
+import { NameMeaningTranslator } from "@/components/name-meaning-translator"
+import { NameFavoritesStats } from "@/components/name-favorites-stats"
+import { NameGeneratorHistory } from "@/components/name-generator-history"
+import { NameTribeInfo } from "@/components/name-tribe-info"
 import { useState } from "react"
 
 export default function HomePage() {
@@ -222,8 +227,31 @@ export default function HomePage() {
                 <NameGeneratorShortcuts />
               </div>
               <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
-                {/* Placeholder for future tool */}
+                <NameGeneratorHistory />
               </div>
+            </div>
+          </section>
+
+          {/* Educational Tools Section */}
+          <section>
+            <h2 className="text-2xl font-bold text-white mb-4 px-2">Educational Tools</h2>
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameBirthChart />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameMeaningTranslator />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameTribeInfo />
+              </div>
+            </div>
+          </section>
+
+          {/* User Stats Section */}
+          <section>
+            <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+              <NameFavoritesStats />
             </div>
           </section>
         </div>
