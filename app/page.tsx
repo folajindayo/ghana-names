@@ -30,6 +30,11 @@ import { NameMeaningTranslator } from "@/components/name-meaning-translator"
 import { NameFavoritesStats } from "@/components/name-favorites-stats"
 import { NameGeneratorHistory } from "@/components/name-generator-history"
 import { NameTribeInfo } from "@/components/name-tribe-info"
+import { NameFortuneTeller } from "@/components/name-fortune-teller"
+import { NameCompatibilityChecker } from "@/components/name-compatibility-checker"
+import { NameNumerology } from "@/components/name-numerology"
+import { NameNameDayFinder } from "@/components/name-name-day-finder"
+import { NameAnagramGenerator } from "@/components/name-anagram-generator"
 import { useState } from "react"
 
 export default function HomePage() {
@@ -244,6 +249,28 @@ export default function HomePage() {
               </div>
               <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
                 <NameTribeInfo />
+              </div>
+            </div>
+          </section>
+
+          {/* Fun Tools Section */}
+          <section>
+            <h2 className="text-2xl font-bold text-white mb-4 px-2">Fun Tools & Games</h2>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameFortuneTeller />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameCompatibilityChecker />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameNumerology />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameNameDayFinder />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameAnagramGenerator />
               </div>
             </div>
           </section>
