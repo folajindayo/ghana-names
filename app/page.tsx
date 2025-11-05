@@ -40,6 +40,11 @@ import { NameVariationsGenerator } from "@/components/name-variations-generator"
 import { NameFrequencyAnalyzer } from "@/components/name-frequency-analyzer"
 import { NameRhythmAnalyzer } from "@/components/name-rhythm-analyzer"
 import { NameInitialGenerator } from "@/components/name-initial-generator"
+import { NameSoundAlike } from "@/components/name-sound-alike"
+import { NameGeneratorAdvanced } from "@/components/name-name-generator-advanced"
+import { NameStatsCompare } from "@/components/name-name-stats-compare"
+import { NamePalindromeChecker } from "@/components/name-palindrome-checker"
+import { NameWordPlay } from "@/components/name-word-play"
 import { useState } from "react"
 
 export default function HomePage() {
@@ -298,6 +303,21 @@ export default function HomePage() {
               </div>
               <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
                 <NameInitialGenerator />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameSoundAlike />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameGeneratorAdvanced />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameStatsCompare />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NamePalindromeChecker />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameWordPlay />
               </div>
             </div>
           </section>
