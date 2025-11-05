@@ -22,6 +22,9 @@ import { NameTrendingWidget } from "@/components/name-trending-widget"
 import { NameRandomGenerator } from "@/components/name-random-generator"
 import { NameSearchWidget } from "@/components/name-search-widget"
 import { NameCultureTips } from "@/components/name-culture-tips"
+import { NameRecentActivity } from "@/components/name-recent-activity"
+import { NameSuggestionsSmart } from "@/components/name-suggestions-smart"
+import { NameSocialProof } from "@/components/name-social-proof"
 import { useState } from "react"
 
 export default function HomePage() {
@@ -149,6 +152,18 @@ export default function HomePage() {
               </div>
               <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
                 <NameCultureTips />
+              </div>
+            </div>
+          </section>
+
+          {/* Social Proof & Recent Activity */}
+          <section>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameSocialProof />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameRecentActivity />
               </div>
             </div>
           </section>
