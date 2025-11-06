@@ -88,6 +88,9 @@ import { NamePalindromeCheckerEnhanced } from "@/components/name-name-palindrome
 import { NameAnagramSolver } from "@/components/name-name-anagram-solver"
 import { NameScrabbleScorer } from "@/components/name-name-scrabble-scorer"
 import { NameWordValueCalculator } from "@/components/name-name-word-value-calculator"
+import { NameAcronymGenerator } from "@/components/name-name-acronym-generator"
+import { NameBackwardsReader } from "@/components/name-name-backwards-reader"
+import { NameCaesarCipher } from "@/components/name-name-caesar-cipher"
 import { useState } from "react"
 
 export default function HomePage() {
@@ -566,6 +569,15 @@ export default function HomePage() {
               </div>
               <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
                 <NameWordValueCalculator />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameAcronymGenerator />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameBackwardsReader />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameCaesarCipher />
               </div>
             </div>
           </section>
