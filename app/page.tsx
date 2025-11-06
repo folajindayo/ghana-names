@@ -66,6 +66,10 @@ import { NameSearchAdvanced } from "@/components/name-name-search-advanced"
 import { NameBirthdayGenerator } from "@/components/name-name-birthday-generator"
 import { NameMeaningExplorer } from "@/components/name-name-meaning-explorer"
 import { NamePopularityChart } from "@/components/name-name-popularity-chart"
+import { NameRandomPicker } from "@/components/name-name-random-picker"
+import { NameFavoriteComparison } from "@/components/name-name-favorite-comparison"
+import { NameShortlistManager } from "@/components/name-name-shortlist-manager"
+import { NameQuickActions } from "@/components/name-name-quick-actions"
 import { useState } from "react"
 
 export default function HomePage() {
@@ -437,6 +441,31 @@ export default function HomePage() {
               </div>
               <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
                 <NameMeaningExplorer />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameRandomPicker />
+              </div>
+            </div>
+          </section>
+
+          {/* Quick Tools & Actions Section */}
+          <section>
+            <h2 className="text-2xl font-bold text-white mb-4 px-2">Quick Tools & Actions</h2>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameFavoriteComparison />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameShortlistManager />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameQuickActions
+                  name="Kwame"
+                  lastName="Asante"
+                  meaning="Born on Saturday"
+                  tribe="Akan"
+                  gender="Male"
+                />
               </div>
             </div>
           </section>
