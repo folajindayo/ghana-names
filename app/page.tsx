@@ -62,6 +62,10 @@ import { NameSimilarityMatrix } from "@/components/name-name-similarity-matrix"
 import { NameCultureMatch } from "@/components/name-name-culture-match"
 import { NameGenerationHistoryViewer } from "@/components/name-name-generation-history-viewer"
 import { NameExportFormatsAdvanced } from "@/components/name-name-export-formats-advanced"
+import { NameSearchAdvanced } from "@/components/name-name-search-advanced"
+import { NameBirthdayGenerator } from "@/components/name-name-birthday-generator"
+import { NameMeaningExplorer } from "@/components/name-name-meaning-explorer"
+import { NamePopularityChart } from "@/components/name-name-popularity-chart"
 import { useState } from "react"
 
 export default function HomePage() {
@@ -414,6 +418,25 @@ export default function HomePage() {
               </div>
               <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
                 <NameCultureMatch />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NamePopularityChart />
+              </div>
+            </div>
+          </section>
+
+          {/* Search & Discovery Tools Section */}
+          <section>
+            <h2 className="text-2xl font-bold text-white mb-4 px-2">Search & Discovery Tools</h2>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameSearchAdvanced />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameBirthdayGenerator />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameMeaningExplorer />
               </div>
             </div>
           </section>
