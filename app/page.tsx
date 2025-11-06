@@ -51,6 +51,12 @@ import { NameAstrologyCompatibility } from "@/components/name-astrology-compatib
 import { NameLuckyNumbers } from "@/components/name-lucky-numbers"
 import { NameLengthAnalyzer } from "@/components/name-name-length-analyzer"
 import { NameVibeChecker } from "@/components/name-vibe-checker"
+import { NameGeneratorQuick } from "@/components/name-name-generator-quick"
+import { NameSuggestionsAI } from "@/components/name-name-suggestions-ai"
+import { NameBatchExport } from "@/components/name-name-batch-export"
+import { NameValidator } from "@/components/name-name-validator"
+import { NameStatsDashboard } from "@/components/name-name-stats-dashboard"
+import { NameFavoritesManager } from "@/components/name-name-favorites-manager"
 import { useState } from "react"
 
 export default function HomePage() {
@@ -349,6 +355,38 @@ export default function HomePage() {
               </div>
               <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
                 <NameVibeChecker />
+              </div>
+            </div>
+          </section>
+
+          {/* Generator & Utility Tools Section */}
+          <section>
+            <h2 className="text-2xl font-bold text-white mb-4 px-2">Generator & Utility Tools</h2>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameGeneratorQuick lastName="Asante" />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameSuggestionsAI />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameValidator />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameStatsDashboard />
+              </div>
+            </div>
+          </section>
+
+          {/* Management Tools Section */}
+          <section>
+            <h2 className="text-2xl font-bold text-white mb-4 px-2">Management Tools</h2>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameFavoritesManager />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameBatchExport names={[]} />
               </div>
             </div>
           </section>
