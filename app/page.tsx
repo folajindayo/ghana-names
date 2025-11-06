@@ -57,6 +57,11 @@ import { NameBatchExport } from "@/components/name-name-batch-export"
 import { NameValidator } from "@/components/name-name-validator"
 import { NameStatsDashboard } from "@/components/name-name-stats-dashboard"
 import { NameFavoritesManager } from "@/components/name-name-favorites-manager"
+import { NameTrendAnalyzer } from "@/components/name-name-trend-analyzer"
+import { NameSimilarityMatrix } from "@/components/name-name-similarity-matrix"
+import { NameCultureMatch } from "@/components/name-name-culture-match"
+import { NameGenerationHistoryViewer } from "@/components/name-name-generation-history-viewer"
+import { NameExportFormatsAdvanced } from "@/components/name-name-export-formats-advanced"
 import { useState } from "react"
 
 export default function HomePage() {
@@ -387,6 +392,28 @@ export default function HomePage() {
               </div>
               <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
                 <NameBatchExport names={[]} />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameGenerationHistoryViewer />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameExportFormatsAdvanced names={[]} />
+              </div>
+            </div>
+          </section>
+
+          {/* Analysis & Comparison Tools Section */}
+          <section>
+            <h2 className="text-2xl font-bold text-white mb-4 px-2">Analysis & Comparison Tools</h2>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameTrendAnalyzer />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameSimilarityMatrix />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameCultureMatch />
               </div>
             </div>
           </section>
