@@ -76,6 +76,9 @@ import { NameInitialsGenerator } from "@/components/name-name-initials-generator
 import { NameCombinationGenerator } from "@/components/name-name-combination-generator"
 import { NameRhymingFinder } from "@/components/name-name-rhyming-finder"
 import { NameAlliterationFinder } from "@/components/name-name-alliteration-finder"
+import { NameFrequencyCounter } from "@/components/name-name-frequency-counter"
+import { NamePatternMatcher } from "@/components/name-name-pattern-matcher"
+import { NameUniquenessScorer } from "@/components/name-name-uniqueness-scorer"
 import { useState } from "react"
 
 export default function HomePage() {
@@ -504,6 +507,22 @@ export default function HomePage() {
               </div>
               <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
                 <NameStyleAnalyzer />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameFrequencyCounter />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameUniquenessScorer />
+              </div>
+            </div>
+          </section>
+
+          {/* Pattern & Matching Tools Section */}
+          <section>
+            <h2 className="text-2xl font-bold text-white mb-4 px-2">Pattern & Matching Tools</h2>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NamePatternMatcher />
               </div>
             </div>
           </section>
