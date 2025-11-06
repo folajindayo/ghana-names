@@ -91,6 +91,9 @@ import { NameWordValueCalculator } from "@/components/name-name-word-value-calcu
 import { NameAcronymGenerator } from "@/components/name-name-acronym-generator"
 import { NameBackwardsReader } from "@/components/name-name-backwards-reader"
 import { NameCaesarCipher } from "@/components/name-name-caesar-cipher"
+import { NameMorseCode } from "@/components/name-name-morse-code"
+import { NameBinaryConverter } from "@/components/name-name-binary-converter"
+import { NameHexConverter } from "@/components/name-name-hex-converter"
 import { useState } from "react"
 
 export default function HomePage() {
@@ -578,6 +581,22 @@ export default function HomePage() {
               </div>
               <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
                 <NameCaesarCipher />
+              </div>
+            </div>
+          </section>
+
+          {/* Encoding & Conversion Tools Section */}
+          <section>
+            <h2 className="text-2xl font-bold text-white mb-4 px-2">Encoding & Conversion Tools</h2>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameMorseCode />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameBinaryConverter />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameHexConverter />
               </div>
             </div>
           </section>
