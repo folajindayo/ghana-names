@@ -70,6 +70,9 @@ import { NameRandomPicker } from "@/components/name-name-random-picker"
 import { NameFavoriteComparison } from "@/components/name-name-favorite-comparison"
 import { NameShortlistManager } from "@/components/name-name-shortlist-manager"
 import { NameQuickActions } from "@/components/name-name-quick-actions"
+import { NameSoundChecker } from "@/components/name-name-sound-checker"
+import { NameStyleAnalyzer } from "@/components/name-name-style-analyzer"
+import { NameInitialsGenerator } from "@/components/name-name-initials-generator"
 import { useState } from "react"
 
 export default function HomePage() {
@@ -466,6 +469,22 @@ export default function HomePage() {
                   tribe="Akan"
                   gender="Male"
                 />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameInitialsGenerator />
+              </div>
+            </div>
+          </section>
+
+          {/* Name Analysis Tools Section */}
+          <section>
+            <h2 className="text-2xl font-bold text-white mb-4 px-2">Name Analysis Tools</h2>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameSoundChecker />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameStyleAnalyzer />
               </div>
             </div>
           </section>
