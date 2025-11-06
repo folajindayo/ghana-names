@@ -82,6 +82,9 @@ import { NameUniquenessScorer } from "@/components/name-name-uniqueness-scorer"
 import { NameSyllableCounter } from "@/components/name-name-syllable-counter"
 import { NameVowelAnalyzer } from "@/components/name-name-vowel-analyzer"
 import { NameConsonantAnalyzer } from "@/components/name-name-consonant-analyzer"
+import { NameLengthComparator } from "@/components/name-name-length-comparator"
+import { NameLetterDistribution } from "@/components/name-name-letter-distribution"
+import { NamePalindromeCheckerEnhanced } from "@/components/name-name-palindrome-checker-enhanced"
 import { useState } from "react"
 
 export default function HomePage() {
@@ -535,6 +538,15 @@ export default function HomePage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
                 <NamePatternMatcher />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameLengthComparator />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameLetterDistribution />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NamePalindromeCheckerEnhanced />
               </div>
             </div>
           </section>
