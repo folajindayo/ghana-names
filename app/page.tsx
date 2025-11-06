@@ -85,6 +85,9 @@ import { NameConsonantAnalyzer } from "@/components/name-name-consonant-analyzer
 import { NameLengthComparator } from "@/components/name-name-length-comparator"
 import { NameLetterDistribution } from "@/components/name-name-letter-distribution"
 import { NamePalindromeCheckerEnhanced } from "@/components/name-name-palindrome-checker-enhanced"
+import { NameAnagramSolver } from "@/components/name-name-anagram-solver"
+import { NameScrabbleScorer } from "@/components/name-name-scrabble-scorer"
+import { NameWordValueCalculator } from "@/components/name-name-word-value-calculator"
 import { useState } from "react"
 
 export default function HomePage() {
@@ -547,6 +550,22 @@ export default function HomePage() {
               </div>
               <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
                 <NamePalindromeCheckerEnhanced />
+              </div>
+            </div>
+          </section>
+
+          {/* Word Games & Fun Tools Section */}
+          <section>
+            <h2 className="text-2xl font-bold text-white mb-4 px-2">Word Games & Fun Tools</h2>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameAnagramSolver />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameScrabbleScorer />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameWordValueCalculator />
               </div>
             </div>
           </section>
