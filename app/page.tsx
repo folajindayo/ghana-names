@@ -148,6 +148,9 @@ import { NameEmojiConverterEnhanced } from "@/components/name-emoji-converter-en
 import { NameLeetSpeakConverterEnhanced } from "@/components/name-leet-speak-converter-enhanced"
 import { NameWordCharacterCounterEnhanced } from "@/components/name-word-character-counter-enhanced"
 import { NameDuplicateRemoverEnhanced } from "@/components/name-duplicate-remover-enhanced"
+import { NameTextSorterEnhanced } from "@/components/name-text-sorter-enhanced"
+import { NameTextShufflerEnhanced } from "@/components/name-text-shuffler-enhanced"
+import { NameTextReplacerEnhanced } from "@/components/name-text-replacer-enhanced"
 import { useState } from "react"
 
 export default function HomePage() {
@@ -946,6 +949,22 @@ export default function HomePage() {
               </div>
               <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
                 <NameDuplicateRemoverEnhanced />
+              </div>
+            </div>
+          </section>
+
+          {/* Text Processing Tools Section */}
+          <section>
+            <h2 className="text-2xl font-bold text-white mb-4 px-2">Text Processing Tools</h2>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameTextSorterEnhanced />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameTextShufflerEnhanced />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameTextReplacerEnhanced />
               </div>
             </div>
           </section>
