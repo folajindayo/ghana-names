@@ -144,6 +144,10 @@ import { NameUrlEncoderEnhanced } from "@/components/name-url-encoder-enhanced"
 import { NamePigLatinConverterEnhanced } from "@/components/name-pig-latin-converter-enhanced"
 import { NameUppercaseLowercaseConverterEnhanced } from "@/components/name-uppercase-lowercase-converter-enhanced"
 import { NameWhitespaceRemoverEnhanced } from "@/components/name-whitespace-remover-enhanced"
+import { NameEmojiConverterEnhanced } from "@/components/name-emoji-converter-enhanced"
+import { NameLeetSpeakConverterEnhanced } from "@/components/name-leet-speak-converter-enhanced"
+import { NameWordCharacterCounterEnhanced } from "@/components/name-word-character-counter-enhanced"
+import { NameDuplicateRemoverEnhanced } from "@/components/name-duplicate-remover-enhanced"
 import { useState } from "react"
 
 export default function HomePage() {
@@ -923,6 +927,25 @@ export default function HomePage() {
               </div>
               <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
                 <NameWhitespaceRemoverEnhanced />
+              </div>
+            </div>
+          </section>
+
+          {/* Advanced Text Tools Section */}
+          <section>
+            <h2 className="text-2xl font-bold text-white mb-4 px-2">Advanced Text Tools</h2>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameEmojiConverterEnhanced />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameLeetSpeakConverterEnhanced />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameWordCharacterCounterEnhanced />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameDuplicateRemoverEnhanced />
               </div>
             </div>
           </section>
