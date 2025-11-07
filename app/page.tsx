@@ -110,6 +110,8 @@ import { NameFavoritesCollection } from "@/components/name-favorites-collection"
 import { NameRandomPicker } from "@/components/name-random-picker"
 import { NameBirthdayCalculator } from "@/components/name-birthday-calculator"
 import { NameNameDayFinder } from "@/components/name-name-day-finder"
+import { NameSuggestionEngine } from "@/components/name-suggestion-engine"
+import { NameStatisticsDashboard } from "@/components/name-statistics-dashboard"
 import { useState } from "react"
 
 export default function HomePage() {
@@ -696,6 +698,19 @@ export default function HomePage() {
               </div>
               <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
                 <NameNameDayFinder />
+              </div>
+            </div>
+          </section>
+
+          {/* Suggestion & Analytics Section */}
+          <section>
+            <h2 className="text-2xl font-bold text-white mb-4 px-2">Suggestion & Analytics</h2>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameSuggestionEngine />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameStatisticsDashboard />
               </div>
             </div>
           </section>
