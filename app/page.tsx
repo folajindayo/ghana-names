@@ -102,6 +102,9 @@ import { NameLeaderboard } from "@/components/name-leaderboard"
 import { NameMeaningSearch } from "@/components/name-meaning-search"
 import { NamePopularityPredictor } from "@/components/name-popularity-predictor"
 import { NameSoundSimilarity } from "@/components/name-sound-similarity"
+import { NamePronunciationGuide } from "@/components/name-pronunciation-guide"
+import { NameCulturalStories } from "@/components/name-cultural-stories"
+import { NameCombinationGenerator } from "@/components/name-combination-generator"
 import { useState } from "react"
 
 export default function HomePage() {
@@ -643,6 +646,22 @@ export default function HomePage() {
               </div>
               <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
                 <NameSoundSimilarity />
+              </div>
+            </div>
+          </section>
+
+          {/* Educational & Cultural Tools Section */}
+          <section>
+            <h2 className="text-2xl font-bold text-white mb-4 px-2">Educational & Cultural Tools</h2>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NamePronunciationGuide />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameCulturalStories />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameCombinationGenerator />
               </div>
             </div>
           </section>
