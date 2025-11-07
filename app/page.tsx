@@ -112,6 +112,8 @@ import { NameBirthdayCalculator } from "@/components/name-birthday-calculator"
 import { NameNameDayFinder } from "@/components/name-name-day-finder"
 import { NameSuggestionEngine } from "@/components/name-suggestion-engine"
 import { NameStatisticsDashboard } from "@/components/name-statistics-dashboard"
+import { NameExportManager } from "@/components/name-export-manager"
+import { NameBatchGenerator } from "@/components/name-batch-generator"
 import { useState } from "react"
 
 export default function HomePage() {
@@ -711,6 +713,19 @@ export default function HomePage() {
               </div>
               <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
                 <NameStatisticsDashboard />
+              </div>
+            </div>
+          </section>
+
+          {/* Export & Batch Tools Section */}
+          <section>
+            <h2 className="text-2xl font-bold text-white mb-4 px-2">Export & Batch Tools</h2>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameExportManager />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameBatchGenerator />
               </div>
             </div>
           </section>
