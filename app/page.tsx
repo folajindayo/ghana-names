@@ -122,6 +122,8 @@ import { NameQuickActions } from "@/components/name-quick-actions"
 import { NameTribeExplorer } from "@/components/name-tribe-explorer"
 import { NameMeaningTranslatorEnhanced } from "@/components/name-meaning-translator-enhanced"
 import { NameNameGeneratorAIEnhanced } from "@/components/name-name-generator-ai-enhanced"
+import { NamePopularityTracker } from "@/components/name-popularity-tracker"
+import { NameNameDayCalendar } from "@/components/name-name-day-calendar"
 import { useState } from "react"
 
 export default function HomePage() {
@@ -786,6 +788,19 @@ export default function HomePage() {
               </div>
               <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
                 <NameNameGeneratorAIEnhanced />
+              </div>
+            </div>
+          </section>
+
+          {/* Tracking & Calendar Tools Section */}
+          <section>
+            <h2 className="text-2xl font-bold text-white mb-4 px-2">Tracking & Calendar Tools</h2>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NamePopularityTracker />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameNameDayCalendar />
               </div>
             </div>
           </section>
