@@ -99,6 +99,9 @@ import { NameComments } from "@/components/name-comments"
 import { NameQuizGame } from "@/components/name-quiz-game"
 import { NameTrendsChart } from "@/components/name-trends-chart"
 import { NameLeaderboard } from "@/components/name-leaderboard"
+import { NameMeaningSearch } from "@/components/name-meaning-search"
+import { NamePopularityPredictor } from "@/components/name-popularity-predictor"
+import { NameSoundSimilarity } from "@/components/name-sound-similarity"
 import { useState } from "react"
 
 export default function HomePage() {
@@ -624,6 +627,22 @@ export default function HomePage() {
               </div>
               <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
                 <NameLeaderboard />
+              </div>
+            </div>
+          </section>
+
+          {/* Search & Discovery Tools Section */}
+          <section>
+            <h2 className="text-2xl font-bold text-white mb-4 px-2">Search & Discovery Tools</h2>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameMeaningSearch />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NamePopularityPredictor />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameSoundSimilarity />
               </div>
             </div>
           </section>
