@@ -97,6 +97,8 @@ import { NameHexConverter } from "@/components/name-name-hex-converter"
 import { NameVotingSystem } from "@/components/name-voting-system"
 import { NameComments } from "@/components/name-comments"
 import { NameQuizGame } from "@/components/name-quiz-game"
+import { NameTrendsChart } from "@/components/name-trends-chart"
+import { NameLeaderboard } from "@/components/name-leaderboard"
 import { useState } from "react"
 
 export default function HomePage() {
@@ -616,6 +618,12 @@ export default function HomePage() {
               </div>
               <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
                 <NameQuizGame />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameTrendsChart />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameLeaderboard />
               </div>
             </div>
           </section>
