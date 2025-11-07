@@ -135,6 +135,9 @@ import { NamePalindromeCheckerEnhanced } from "@/components/name-palindrome-chec
 import { NameAnagramGeneratorEnhanced } from "@/components/name-anagram-generator-enhanced"
 import { NameScrabbleScorerEnhanced } from "@/components/name-scrabble-scorer-enhanced"
 import { NameWordValueCalculatorEnhanced } from "@/components/name-word-value-calculator-enhanced"
+import { NameAcronymGeneratorEnhanced } from "@/components/name-acronym-generator-enhanced"
+import { NameBackwardsReaderEnhanced } from "@/components/name-backwards-reader-enhanced"
+import { NameCaesarCipherEnhanced } from "@/components/name-caesar-cipher-enhanced"
 import { useState } from "react"
 
 export default function HomePage() {
@@ -866,6 +869,22 @@ export default function HomePage() {
               </div>
               <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
                 <NameWordValueCalculatorEnhanced />
+              </div>
+            </div>
+          </section>
+
+          {/* Text Manipulation Tools Section */}
+          <section>
+            <h2 className="text-2xl font-bold text-white mb-4 px-2">Text Manipulation Tools</h2>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameAcronymGeneratorEnhanced />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameBackwardsReaderEnhanced />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameCaesarCipherEnhanced />
               </div>
             </div>
           </section>
