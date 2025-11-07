@@ -141,6 +141,9 @@ import { NameCaesarCipherEnhanced } from "@/components/name-caesar-cipher-enhanc
 import { NameRot13EncoderEnhanced } from "@/components/name-rot13-encoder-enhanced"
 import { NameBase64EncoderEnhanced } from "@/components/name-base64-encoder-enhanced"
 import { NameUrlEncoderEnhanced } from "@/components/name-url-encoder-enhanced"
+import { NamePigLatinConverterEnhanced } from "@/components/name-pig-latin-converter-enhanced"
+import { NameUppercaseLowercaseConverterEnhanced } from "@/components/name-uppercase-lowercase-converter-enhanced"
+import { NameWhitespaceRemoverEnhanced } from "@/components/name-whitespace-remover-enhanced"
 import { useState } from "react"
 
 export default function HomePage() {
@@ -904,6 +907,22 @@ export default function HomePage() {
               </div>
               <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
                 <NameUrlEncoderEnhanced />
+              </div>
+            </div>
+          </section>
+
+          {/* Text Conversion Tools Section */}
+          <section>
+            <h2 className="text-2xl font-bold text-white mb-4 px-2">Text Conversion Tools</h2>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NamePigLatinConverterEnhanced />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameUppercaseLowercaseConverterEnhanced />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameWhitespaceRemoverEnhanced />
               </div>
             </div>
           </section>
