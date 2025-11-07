@@ -94,6 +94,9 @@ import { NameCaesarCipher } from "@/components/name-name-caesar-cipher"
 import { NameMorseCode } from "@/components/name-name-morse-code"
 import { NameBinaryConverter } from "@/components/name-name-binary-converter"
 import { NameHexConverter } from "@/components/name-name-hex-converter"
+import { NameVotingSystem } from "@/components/name-voting-system"
+import { NameComments } from "@/components/name-comments"
+import { NameQuizGame } from "@/components/name-quiz-game"
 import { useState } from "react"
 
 export default function HomePage() {
@@ -597,6 +600,22 @@ export default function HomePage() {
               </div>
               <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
                 <NameHexConverter />
+              </div>
+            </div>
+          </section>
+
+          {/* Community & Interactive Features Section */}
+          <section>
+            <h2 className="text-2xl font-bold text-white mb-4 px-2">Community & Interactive Features</h2>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameVotingSystem />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameComments />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameQuizGame />
               </div>
             </div>
           </section>
