@@ -124,6 +124,10 @@ import { NameMeaningTranslatorEnhanced } from "@/components/name-meaning-transla
 import { NameNameGeneratorAIEnhanced } from "@/components/name-name-generator-ai-enhanced"
 import { NamePopularityTracker } from "@/components/name-popularity-tracker"
 import { NameNameDayCalendar } from "@/components/name-name-day-calendar"
+import { NameRhythmAnalyzerEnhanced } from "@/components/name-rhythm-analyzer-enhanced"
+import { NameSimilarityFinder } from "@/components/name-similarity-finder"
+import { NameOccasionGenerator } from "@/components/name-occasion-generator"
+import { NameFrequencyAnalyzerEnhanced } from "@/components/name-frequency-analyzer-enhanced"
 import { useState } from "react"
 
 export default function HomePage() {
@@ -801,6 +805,25 @@ export default function HomePage() {
               </div>
               <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
                 <NameNameDayCalendar />
+              </div>
+            </div>
+          </section>
+
+          {/* Advanced Analysis Tools Section */}
+          <section>
+            <h2 className="text-2xl font-bold text-white mb-4 px-2">Advanced Analysis Tools</h2>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameRhythmAnalyzerEnhanced />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameSimilarityFinder />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameOccasionGenerator />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameFrequencyAnalyzerEnhanced />
               </div>
             </div>
           </section>
