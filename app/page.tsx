@@ -128,6 +128,10 @@ import { NameRhythmAnalyzerEnhanced } from "@/components/name-rhythm-analyzer-en
 import { NameSimilarityFinder } from "@/components/name-similarity-finder"
 import { NameOccasionGenerator } from "@/components/name-occasion-generator"
 import { NameFrequencyAnalyzerEnhanced } from "@/components/name-frequency-analyzer-enhanced"
+import { NameVowelAnalyzerEnhanced } from "@/components/name-vowel-analyzer-enhanced"
+import { NameConsonantAnalyzerEnhanced } from "@/components/name-consonant-analyzer-enhanced"
+import { NameSyllableCounterEnhanced } from "@/components/name-syllable-counter-enhanced"
+import { NamePalindromeCheckerEnhanced } from "@/components/name-palindrome-checker-enhanced"
 import { useState } from "react"
 
 export default function HomePage() {
@@ -824,6 +828,25 @@ export default function HomePage() {
               </div>
               <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
                 <NameFrequencyAnalyzerEnhanced />
+              </div>
+            </div>
+          </section>
+
+          {/* Phonetic Analysis Tools Section */}
+          <section>
+            <h2 className="text-2xl font-bold text-white mb-4 px-2">Phonetic Analysis Tools</h2>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameVowelAnalyzerEnhanced />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameConsonantAnalyzerEnhanced />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameSyllableCounterEnhanced />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NamePalindromeCheckerEnhanced />
               </div>
             </div>
           </section>
