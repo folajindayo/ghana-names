@@ -3,142 +3,93 @@
 import { useState } from 'react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
-import { Download, FileText, FileJson, FileSpreadsheet, Image } from 'lucide-react'
+import { Badge } from '@/components/ui/badge'
+import { Textarea } from '@/components/ui/textarea'
+import { Label } from '@/components/ui/label'
+import { Download, FileText, FileJson, FileSpreadsheet, Image, Copy, Check } from 'lucide-react'
 import { useToast } from '@/hooks/use-toast'
 
 interface ExportData {
   name: string
-  lastName: string
   meaning: string
-  tribe?: string
+  tribe: string
   gender?: string
 }
 
-interface NameExportManagerProps {
-  data: ExportData | ExportData[]
-  filename?: string
-}
-
-export function NameExportManager({ data, filename = 'ghanaian-names' }: NameExportManagerProps) {
+export function NameExportManager() {
+  const [exportData, setExportData] = useState<ExportData>({
+    name: '',
+    meaning: '',
+    tribe: '',
+    gender: '',
+  })
+  const [copied, setCopied] = useState(false)
   const { toast } = useToast()
-  const [format, setFormat] = useState<'json' | 'csv' | 'txt' | 'png'>('json')
-  const [isExporting, setIsExporting] = useState(false)
-
-  const isArray = Array.isArray(data)
-  const exportData = isArray ? data : [data]
 
   const exportToJSON = () => {
-    const json = JSON.stringify(exportData, null, 2)
-    const blob = new Blob([json], { type: 'application/json' })
+    const data = JSON.stringify(exportData, null, 2)
+    const blob = new Blob([data], { type: 'application/json' })
     const url = URL.createObjectURL(blob)
     const a = document.createElement('a')
     a.href = url
-    a.download = `${filename}.json`
+    a.download = `${exportData.name || 'name'}-data.json`
     a.click()
     URL.revokeObjectURL(url)
+    toast({
+      title: "Exported!",
+      description: "Name data exported as JSON",
+    })
   }
 
   const exportToCSV = () => {
-    const headers = ['Name', 'Last Name', 'Meaning', 'Tribe', 'Gender']
-    const rows = exportData.map((item) => [
-      item.name,
-      item.lastName,
-      item.meaning,
-      item.tribe || '',
-      item.gender || '',
-    ])
-    const csv = [headers, ...rows].map((row) => row.map((cell) => `"${cell}"`).join(',')).join('\n')
+    const headers = ['Name', 'Meaning', 'Tribe', 'Gender']
+    const row = [
+      exportData.name,
+      exportData.meaning,
+      exportData.tribe,
+      exportData.gender || 'N/A',
+    ]
+    const csv = [headers.join(','), row.join(',')].join('\n')
     const blob = new Blob([csv], { type: 'text/csv' })
     const url = URL.createObjectURL(blob)
     const a = document.createElement('a')
     a.href = url
-    a.download = `${filename}.csv`
+    a.download = `${exportData.name || 'name'}-data.csv`
     a.click()
     URL.revokeObjectURL(url)
+    toast({
+      title: "Exported!",
+      description: "Name data exported as CSV",
+    })
   }
 
   const exportToTXT = () => {
-    const text = exportData
-      .map((item) => {
-        return `${item.name} ${item.lastName}\nMeaning: ${item.meaning}${item.tribe ? `\nTribe: ${item.tribe}` : ''}${item.gender ? `\nGender: ${item.gender}` : ''}\n`
-      })
-      .join('\n---\n\n')
+    const text = `Name: ${exportData.name}
+Meaning: ${exportData.meaning}
+Tribe: ${exportData.tribe}
+Gender: ${exportData.gender || 'N/A'}`
     const blob = new Blob([text], { type: 'text/plain' })
     const url = URL.createObjectURL(blob)
     const a = document.createElement('a')
     a.href = url
-    a.download = `${filename}.txt`
+    a.download = `${exportData.name || 'name'}-data.txt`
     a.click()
     URL.revokeObjectURL(url)
-  }
-
-  const exportToPNG = async () => {
-    setIsExporting(true)
-    try {
-      // Dynamic import to avoid SSR issues
-      const html2canvas = (await import('html2canvas')).default
-      const element = document.getElementById('name-card-export')
-      if (!element) {
-        toast({
-          title: "Error",
-          description: "Export element not found",
-          variant: "destructive",
-        })
-        return
-      }
-      const canvas = await html2canvas(element, { backgroundColor: null })
-      const url = canvas.toDataURL('image/png')
-      const a = document.createElement('a')
-      a.href = url
-      a.download = `${filename}.png`
-      a.click()
-    } catch (error) {
-      console.error('Export error:', error)
-      toast({
-        title: "Export failed",
-        description: "Unable to export as image",
-        variant: "destructive",
-      })
-    } finally {
-      setIsExporting(false)
-    }
-  }
-
-  const handleExport = () => {
-    switch (format) {
-      case 'json':
-        exportToJSON()
-        break
-      case 'csv':
-        exportToCSV()
-        break
-      case 'txt':
-        exportToTXT()
-        break
-      case 'png':
-        exportToPNG()
-        break
-    }
     toast({
       title: "Exported!",
-      description: `Exported ${isArray ? exportData.length : 1} name(s) as ${format.toUpperCase()}`,
+      description: "Name data exported as TXT",
     })
   }
 
-  const getFormatIcon = () => {
-    switch (format) {
-      case 'json':
-        return <FileJson className="h-4 w-4" />
-      case 'csv':
-        return <FileSpreadsheet className="h-4 w-4" />
-      case 'txt':
-        return <FileText className="h-4 w-4" />
-      case 'png':
-        return <Image className="h-4 w-4" />
-      default:
-        return <Download className="h-4 w-4" />
-    }
+  const copyToClipboard = () => {
+    const text = JSON.stringify(exportData, null, 2)
+    navigator.clipboard.writeText(text)
+    setCopied(true)
+    setTimeout(() => setCopied(false), 2000)
+    toast({
+      title: "Copied!",
+      description: "Name data copied to clipboard",
+    })
   }
 
   return (
@@ -149,57 +100,119 @@ export function NameExportManager({ data, filename = 'ghanaian-names' }: NameExp
           Export Manager
         </CardTitle>
         <CardDescription className="text-white/70">
-          Export {isArray ? `${exportData.length} names` : 'name'} in various formats
+          Export name data in multiple formats
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-4">
-        <div className="space-y-2">
-          <label className="text-white/80 text-sm">Export Format</label>
-          <Select value={format} onValueChange={(value: any) => setFormat(value)}>
-            <SelectTrigger className="bg-white/10 border-white/20 text-white">
-              <SelectValue />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="json">
-                <div className="flex items-center gap-2">
-                  <FileJson className="h-4 w-4" />
-                  JSON
-                </div>
-              </SelectItem>
-              <SelectItem value="csv">
-                <div className="flex items-center gap-2">
-                  <FileSpreadsheet className="h-4 w-4" />
-                  CSV
-                </div>
-              </SelectItem>
-              <SelectItem value="txt">
-                <div className="flex items-center gap-2">
-                  <FileText className="h-4 w-4" />
-                  Text
-                </div>
-              </SelectItem>
-              <SelectItem value="png">
-                <div className="flex items-center gap-2">
-                  <Image className="h-4 w-4" />
-                  PNG Image
-                </div>
-              </SelectItem>
-            </SelectContent>
-          </Select>
+        <div className="space-y-3">
+          <div className="space-y-2">
+            <Label className="text-white/80">Name</Label>
+            <Textarea
+              placeholder="Enter name"
+              value={exportData.name}
+              onChange={(e) => setExportData({ ...exportData, name: e.target.value })}
+              className="bg-white/10 border-white/20 text-white placeholder:text-white/50"
+              rows={1}
+            />
+          </div>
+          <div className="space-y-2">
+            <Label className="text-white/80">Meaning</Label>
+            <Textarea
+              placeholder="Enter meaning"
+              value={exportData.meaning}
+              onChange={(e) => setExportData({ ...exportData, meaning: e.target.value })}
+              className="bg-white/10 border-white/20 text-white placeholder:text-white/50"
+              rows={2}
+            />
+          </div>
+          <div className="grid grid-cols-2 gap-3">
+            <div className="space-y-2">
+              <Label className="text-white/80">Tribe</Label>
+              <Textarea
+                placeholder="Enter tribe"
+                value={exportData.tribe}
+                onChange={(e) => setExportData({ ...exportData, tribe: e.target.value })}
+                className="bg-white/10 border-white/20 text-white placeholder:text-white/50"
+                rows={1}
+              />
+            </div>
+            <div className="space-y-2">
+              <Label className="text-white/80">Gender (Optional)</Label>
+              <Textarea
+                placeholder="Enter gender"
+                value={exportData.gender || ''}
+                onChange={(e) => setExportData({ ...exportData, gender: e.target.value })}
+                className="bg-white/10 border-white/20 text-white placeholder:text-white/50"
+                rows={1}
+              />
+            </div>
+          </div>
         </div>
 
-        <Button
-          onClick={handleExport}
-          disabled={isExporting}
-          className="w-full bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white font-semibold"
-        >
-          {getFormatIcon()}
-          <span className="ml-2">
-            {isExporting ? 'Exporting...' : `Export as ${format.toUpperCase()}`}
-          </span>
-        </Button>
+        {exportData.name && (
+          <div className="p-4 bg-white/5 rounded-lg border border-white/10">
+            <h4 className="text-white font-semibold mb-2 text-sm">Preview</h4>
+            <pre className="text-white/80 text-xs overflow-x-auto">
+              {JSON.stringify(exportData, null, 2)}
+            </pre>
+          </div>
+        )}
+
+        <div className="space-y-3">
+          <h4 className="text-white font-semibold text-sm">Export Formats</h4>
+          <div className="grid grid-cols-2 gap-3">
+            <Button
+              onClick={exportToJSON}
+              className="bg-blue-500 hover:bg-blue-600 text-white"
+              disabled={!exportData.name}
+            >
+              <FileJson className="h-4 w-4 mr-2" />
+              JSON
+            </Button>
+            <Button
+              onClick={exportToCSV}
+              className="bg-green-500 hover:bg-green-600 text-white"
+              disabled={!exportData.name}
+            >
+              <FileSpreadsheet className="h-4 w-4 mr-2" />
+              CSV
+            </Button>
+            <Button
+              onClick={exportToTXT}
+              className="bg-gray-500 hover:bg-gray-600 text-white"
+              disabled={!exportData.name}
+            >
+              <FileText className="h-4 w-4 mr-2" />
+              TXT
+            </Button>
+            <Button
+              onClick={copyToClipboard}
+              className="bg-purple-500 hover:bg-purple-600 text-white"
+              disabled={!exportData.name}
+            >
+              {copied ? (
+                <>
+                  <Check className="h-4 w-4 mr-2" />
+                  Copied!
+                </>
+              ) : (
+                <>
+                  <Copy className="h-4 w-4 mr-2" />
+                  Copy
+                </>
+              )}
+            </Button>
+          </div>
+        </div>
+
+        {!exportData.name && (
+          <div className="p-3 bg-green-500/10 rounded border border-green-500/30">
+            <p className="text-white/80 text-xs">
+              <strong className="text-white">Tip:</strong> Fill in the name details above to export in various formats (JSON, CSV, TXT) or copy to clipboard.
+            </p>
+          </div>
+        )}
       </CardContent>
     </Card>
   )
 }
-
