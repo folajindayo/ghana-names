@@ -108,6 +108,8 @@ import { NameCombinationGenerator } from "@/components/name-combination-generato
 import { NameSocialShare } from "@/components/name-social-share"
 import { NameFavoritesCollection } from "@/components/name-favorites-collection"
 import { NameRandomPicker } from "@/components/name-random-picker"
+import { NameBirthdayCalculator } from "@/components/name-birthday-calculator"
+import { NameNameDayFinder } from "@/components/name-name-day-finder"
 import { useState } from "react"
 
 export default function HomePage() {
@@ -681,6 +683,19 @@ export default function HomePage() {
               </div>
               <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
                 <NameRandomPicker />
+              </div>
+            </div>
+          </section>
+
+          {/* Birthday & Celebration Tools Section */}
+          <section>
+            <h2 className="text-2xl font-bold text-white mb-4 px-2">Birthday & Celebration Tools</h2>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameBirthdayCalculator />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameNameDayFinder />
               </div>
             </div>
           </section>
