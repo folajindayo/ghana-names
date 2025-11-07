@@ -105,6 +105,9 @@ import { NameSoundSimilarity } from "@/components/name-sound-similarity"
 import { NamePronunciationGuide } from "@/components/name-pronunciation-guide"
 import { NameCulturalStories } from "@/components/name-cultural-stories"
 import { NameCombinationGenerator } from "@/components/name-combination-generator"
+import { NameSocialShare } from "@/components/name-social-share"
+import { NameFavoritesCollection } from "@/components/name-favorites-collection"
+import { NameRandomPicker } from "@/components/name-random-picker"
 import { useState } from "react"
 
 export default function HomePage() {
@@ -662,6 +665,22 @@ export default function HomePage() {
               </div>
               <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
                 <NameCombinationGenerator />
+              </div>
+            </div>
+          </section>
+
+          {/* Sharing & Collections Section */}
+          <section>
+            <h2 className="text-2xl font-bold text-white mb-4 px-2">Sharing & Collections</h2>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameSocialShare />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameFavoritesCollection />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameRandomPicker />
               </div>
             </div>
           </section>
