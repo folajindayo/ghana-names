@@ -164,6 +164,10 @@ import { NameTextCompareEnhanced } from "@/components/name-text-compare-enhanced
 import { NameTextDiffEnhanced } from "@/components/name-text-diff-enhanced"
 import { NameTextMergeEnhanced } from "@/components/name-text-merge-enhanced"
 import { NameTextEncoderEnhanced } from "@/components/name-text-encoder-enhanced"
+import { NameTextHashEnhanced } from "@/components/name-text-hash-enhanced"
+import { NameTextRandomizerEnhanced } from "@/components/name-text-randomizer-enhanced"
+import { NameTextPatternMatcherEnhanced } from "@/components/name-text-pattern-matcher-enhanced"
+import { NameTextStatisticsEnhanced } from "@/components/name-text-statistics-enhanced"
 import { useState } from "react"
 
 export default function HomePage() {
@@ -1021,6 +1025,18 @@ export default function HomePage() {
               </div>
               <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
                 <NameTextEncoderEnhanced />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameTextHashEnhanced />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameTextRandomizerEnhanced />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameTextPatternMatcherEnhanced />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameTextStatisticsEnhanced />
               </div>
             </div>
           </section>
