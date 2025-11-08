@@ -168,6 +168,10 @@ import { NameTextHashEnhanced } from "@/components/name-text-hash-enhanced"
 import { NameTextRandomizerEnhanced } from "@/components/name-text-randomizer-enhanced"
 import { NameTextPatternMatcherEnhanced } from "@/components/name-text-pattern-matcher-enhanced"
 import { NameTextStatisticsEnhanced } from "@/components/name-text-statistics-enhanced"
+import { NameTextCleanerEnhanced } from "@/components/name-text-cleaner-enhanced"
+import { NameTextCaseConverterEnhanced } from "@/components/name-text-case-converter-enhanced"
+import { NameTextPrefixSuffixEnhanced } from "@/components/name-text-prefix-suffix-enhanced"
+import { NameTextLineProcessorEnhanced } from "@/components/name-text-line-processor-enhanced"
 import { useState } from "react"
 
 export default function HomePage() {
@@ -1037,6 +1041,18 @@ export default function HomePage() {
               </div>
               <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
                 <NameTextStatisticsEnhanced />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameTextCleanerEnhanced />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameTextCaseConverterEnhanced />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameTextPrefixSuffixEnhanced />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameTextLineProcessorEnhanced />
               </div>
             </div>
           </section>
