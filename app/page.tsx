@@ -180,6 +180,10 @@ import { NameTextRotatorEnhanced } from "@/components/name-text-rotator-enhanced
 import { NameTextSlugGeneratorEnhanced } from "@/components/name-text-slug-generator-enhanced"
 import { NameTextEscapeUnescapeEnhanced } from "@/components/name-text-escape-unescape-enhanced"
 import { NameTextPalindromeCheckerEnhanced } from "@/components/name-text-palindrome-checker-enhanced"
+import { NameTextInverterEnhanced } from "@/components/name-text-inverter-enhanced"
+import { NameTextTruncatorEnhanced } from "@/components/name-text-truncator-enhanced"
+import { NameTextPadderEnhanced } from "@/components/name-text-padder-enhanced"
+import { NameTextAlignerEnhanced } from "@/components/name-text-aligner-enhanced"
 import { useState } from "react"
 
 export default function HomePage() {
@@ -1085,6 +1089,18 @@ export default function HomePage() {
               </div>
               <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
                 <NameTextPalindromeCheckerEnhanced />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameTextInverterEnhanced />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameTextTruncatorEnhanced />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameTextPadderEnhanced />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameTextAlignerEnhanced />
               </div>
             </div>
           </section>
