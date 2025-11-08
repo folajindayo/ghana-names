@@ -213,6 +213,8 @@ import { NameTextGrepFilterEnhanced } from "@/components/name-text-grep-filter-e
 import { NameTextAsciiArtEnhanced } from "@/components/name-text-ascii-art-enhanced"
 import { NameTextQuoteFormatterEnhanced } from "@/components/name-text-quote-formatter-enhanced"
 import { NameTextCharacterMapEnhanced } from "@/components/name-text-character-map-enhanced"
+import { NameTextBracketMatcherEnhanced } from "@/components/name-text-bracket-matcher-enhanced"
+import { NameTextAdvancedStatsEnhanced } from "@/components/name-text-advanced-stats-enhanced"
 import { useState } from "react"
 
 export default function HomePage() {
@@ -1231,6 +1233,12 @@ export default function HomePage() {
               </div>
               <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
                 <NameTextAsciiArtEnhanced />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameTextBracketMatcherEnhanced />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameTextAdvancedStatsEnhanced />
               </div>
             </div>
           </section>
