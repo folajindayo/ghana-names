@@ -192,6 +192,10 @@ import { NameTextInsertorEnhanced } from "@/components/name-text-insertor-enhanc
 import { NameTextSwapperEnhanced } from "@/components/name-text-swapper-enhanced"
 import { NameTextCompressorEnhanced } from "@/components/name-text-compressor-enhanced"
 import { NameTextExpanderEnhanced } from "@/components/name-text-expander-enhanced"
+import { NameTextNormalizerEnhanced } from "@/components/name-text-normalizer-enhanced"
+import { NameTextDeduplicatorEnhanced } from "@/components/name-text-deduplicator-enhanced"
+import { NameTextMaskerEnhanced } from "@/components/name-text-masker-enhanced"
+import { NameTextHighlighterEnhanced } from "@/components/name-text-highlighter-enhanced"
 import { useState } from "react"
 
 export default function HomePage() {
@@ -1133,6 +1137,18 @@ export default function HomePage() {
               </div>
               <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
                 <NameTextExpanderEnhanced />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameTextNormalizerEnhanced />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameTextDeduplicatorEnhanced />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameTextMaskerEnhanced />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameTextHighlighterEnhanced />
               </div>
             </div>
           </section>
