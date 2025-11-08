@@ -204,6 +204,11 @@ import { NameTextEncoderDecoderEnhanced } from "@/components/name-text-encoder-d
 import { NameTextScramblerEnhanced } from "@/components/name-text-scrambler-enhanced"
 import { NameTextObfuscatorEnhanced } from "@/components/name-text-obfuscator-enhanced"
 import { NameTextUnwrapperEnhanced } from "@/components/name-text-unwrapper-enhanced"
+import { NameTextBinaryConverterEnhanced } from "@/components/name-text-binary-converter-enhanced"
+import { NameTextHexConverterEnhanced } from "@/components/name-text-hex-converter-enhanced"
+import { NameTextMorseConverterEnhanced } from "@/components/name-text-morse-converter-enhanced"
+import { NameTextIndenterEnhanced } from "@/components/name-text-indenter-enhanced"
+import { NameTextColumnExtractorEnhanced } from "@/components/name-text-column-extractor-enhanced"
 import { useState } from "react"
 
 export default function HomePage() {
@@ -1181,6 +1186,35 @@ export default function HomePage() {
               </div>
               <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
                 <NameTextUnwrapperEnhanced />
+              </div>
+            </div>
+          </section>
+
+          {/* Binary, Hex & Morse Converters Section */}
+          <section>
+            <h2 className="text-2xl font-bold text-white mb-4 px-2">Binary, Hex & Morse Converters</h2>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameTextBinaryConverterEnhanced />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameTextHexConverterEnhanced />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameTextMorseConverterEnhanced />
+              </div>
+            </div>
+          </section>
+
+          {/* Text Formatting & Indentation Tools Section */}
+          <section>
+            <h2 className="text-2xl font-bold text-white mb-4 px-2">Text Formatting & Indentation Tools</h2>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameTextIndenterEnhanced />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameTextColumnExtractorEnhanced />
               </div>
             </div>
           </section>
