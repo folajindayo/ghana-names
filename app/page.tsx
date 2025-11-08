@@ -159,6 +159,11 @@ import { NameTextCapitalizerEnhanced } from "@/components/name-text-capitalizer-
 import { NameTextExtractorEnhanced } from "@/components/name-text-extractor-enhanced"
 import { NameTextFormatterEnhanced } from "@/components/name-text-formatter-enhanced"
 import { NameTextValidatorEnhanced } from "@/components/name-text-validator-enhanced"
+import { NameTextTransformerEnhanced } from "@/components/name-text-transformer-enhanced"
+import { NameTextCompareEnhanced } from "@/components/name-text-compare-enhanced"
+import { NameTextDiffEnhanced } from "@/components/name-text-diff-enhanced"
+import { NameTextMergeEnhanced } from "@/components/name-text-merge-enhanced"
+import { NameTextEncoderEnhanced } from "@/components/name-text-encoder-enhanced"
 import { useState } from "react"
 
 export default function HomePage() {
@@ -994,6 +999,28 @@ export default function HomePage() {
               </div>
               <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
                 <NameTextValidatorEnhanced />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameTextTransformerEnhanced />
+              </div>
+            </div>
+          </section>
+
+          {/* Text Comparison & Merge Tools Section */}
+          <section>
+            <h2 className="text-2xl font-bold text-white mb-4 px-2">Text Comparison & Merge Tools</h2>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameTextCompareEnhanced />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameTextDiffEnhanced />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameTextMergeEnhanced />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameTextEncoderEnhanced />
               </div>
             </div>
           </section>
