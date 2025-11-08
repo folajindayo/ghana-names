@@ -209,6 +209,10 @@ import { NameTextHexConverterEnhanced } from "@/components/name-text-hex-convert
 import { NameTextMorseConverterEnhanced } from "@/components/name-text-morse-converter-enhanced"
 import { NameTextIndenterEnhanced } from "@/components/name-text-indenter-enhanced"
 import { NameTextColumnExtractorEnhanced } from "@/components/name-text-column-extractor-enhanced"
+import { NameTextGrepFilterEnhanced } from "@/components/name-text-grep-filter-enhanced"
+import { NameTextAsciiArtEnhanced } from "@/components/name-text-ascii-art-enhanced"
+import { NameTextQuoteFormatterEnhanced } from "@/components/name-text-quote-formatter-enhanced"
+import { NameTextCharacterMapEnhanced } from "@/components/name-text-character-map-enhanced"
 import { useState } from "react"
 
 export default function HomePage() {
@@ -1215,6 +1219,18 @@ export default function HomePage() {
               </div>
               <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
                 <NameTextColumnExtractorEnhanced />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameTextGrepFilterEnhanced />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameTextQuoteFormatterEnhanced />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameTextCharacterMapEnhanced />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameTextAsciiArtEnhanced />
               </div>
             </div>
           </section>
