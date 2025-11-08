@@ -176,6 +176,10 @@ import { NameTextWordWrapperEnhanced } from "@/components/name-text-word-wrapper
 import { NameTextUniqueExtractorEnhanced } from "@/components/name-text-unique-extractor-enhanced"
 import { NameTextFrequencyCounterEnhanced } from "@/components/name-text-frequency-counter-enhanced"
 import { NameTextWhitespaceHandlerEnhanced } from "@/components/name-text-whitespace-handler-enhanced"
+import { NameTextRotatorEnhanced } from "@/components/name-text-rotator-enhanced"
+import { NameTextSlugGeneratorEnhanced } from "@/components/name-text-slug-generator-enhanced"
+import { NameTextEscapeUnescapeEnhanced } from "@/components/name-text-escape-unescape-enhanced"
+import { NameTextPalindromeCheckerEnhanced } from "@/components/name-text-palindrome-checker-enhanced"
 import { useState } from "react"
 
 export default function HomePage() {
@@ -1069,6 +1073,18 @@ export default function HomePage() {
               </div>
               <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
                 <NameTextWhitespaceHandlerEnhanced />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameTextRotatorEnhanced />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameTextSlugGeneratorEnhanced />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameTextEscapeUnescapeEnhanced />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameTextPalindromeCheckerEnhanced />
               </div>
             </div>
           </section>
