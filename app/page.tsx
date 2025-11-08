@@ -151,6 +151,9 @@ import { NameDuplicateRemoverEnhanced } from "@/components/name-duplicate-remove
 import { NameTextSorterEnhanced } from "@/components/name-text-sorter-enhanced"
 import { NameTextShufflerEnhanced } from "@/components/name-text-shuffler-enhanced"
 import { NameTextReplacerEnhanced } from "@/components/name-text-replacer-enhanced"
+import { NameFontStyleConverterEnhanced } from "@/components/name-font-style-converter-enhanced"
+import { NameTextSplitterEnhanced } from "@/components/name-text-splitter-enhanced"
+import { NameTextJoinerEnhanced } from "@/components/name-text-joiner-enhanced"
 import { useState } from "react"
 
 export default function HomePage() {
@@ -965,6 +968,22 @@ export default function HomePage() {
               </div>
               <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
                 <NameTextReplacerEnhanced />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameTextSplitterEnhanced />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameTextJoinerEnhanced />
+              </div>
+            </div>
+          </section>
+
+          {/* Font & Style Tools Section */}
+          <section>
+            <h2 className="text-2xl font-bold text-white mb-4 px-2">Font & Style Tools</h2>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameFontStyleConverterEnhanced />
               </div>
             </div>
           </section>
