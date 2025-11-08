@@ -200,6 +200,10 @@ import { NameTextTranslatorEnhanced } from "@/components/name-text-translator-en
 import { NameTextFormatterV2Enhanced } from "@/components/name-text-formatter-v2-enhanced"
 import { NameTextAnalyzerEnhanced } from "@/components/name-text-analyzer-enhanced"
 import { NameTextConverterEnhanced } from "@/components/name-text-converter-enhanced"
+import { NameTextEncoderDecoderEnhanced } from "@/components/name-text-encoder-decoder-enhanced"
+import { NameTextScramblerEnhanced } from "@/components/name-text-scrambler-enhanced"
+import { NameTextObfuscatorEnhanced } from "@/components/name-text-obfuscator-enhanced"
+import { NameTextUnwrapperEnhanced } from "@/components/name-text-unwrapper-enhanced"
 import { useState } from "react"
 
 export default function HomePage() {
@@ -1165,6 +1169,18 @@ export default function HomePage() {
               </div>
               <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
                 <NameTextConverterEnhanced />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameTextEncoderDecoderEnhanced />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameTextScramblerEnhanced />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameTextObfuscatorEnhanced />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameTextUnwrapperEnhanced />
               </div>
             </div>
           </section>
