@@ -172,6 +172,10 @@ import { NameTextCleanerEnhanced } from "@/components/name-text-cleaner-enhanced
 import { NameTextCaseConverterEnhanced } from "@/components/name-text-case-converter-enhanced"
 import { NameTextPrefixSuffixEnhanced } from "@/components/name-text-prefix-suffix-enhanced"
 import { NameTextLineProcessorEnhanced } from "@/components/name-text-line-processor-enhanced"
+import { NameTextWordWrapperEnhanced } from "@/components/name-text-word-wrapper-enhanced"
+import { NameTextUniqueExtractorEnhanced } from "@/components/name-text-unique-extractor-enhanced"
+import { NameTextFrequencyCounterEnhanced } from "@/components/name-text-frequency-counter-enhanced"
+import { NameTextWhitespaceHandlerEnhanced } from "@/components/name-text-whitespace-handler-enhanced"
 import { useState } from "react"
 
 export default function HomePage() {
@@ -1053,6 +1057,18 @@ export default function HomePage() {
               </div>
               <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
                 <NameTextLineProcessorEnhanced />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameTextWordWrapperEnhanced />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameTextUniqueExtractorEnhanced />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameTextFrequencyCounterEnhanced />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameTextWhitespaceHandlerEnhanced />
               </div>
             </div>
           </section>
