@@ -196,6 +196,10 @@ import { NameTextNormalizerEnhanced } from "@/components/name-text-normalizer-en
 import { NameTextDeduplicatorEnhanced } from "@/components/name-text-deduplicator-enhanced"
 import { NameTextMaskerEnhanced } from "@/components/name-text-masker-enhanced"
 import { NameTextHighlighterEnhanced } from "@/components/name-text-highlighter-enhanced"
+import { NameTextTranslatorEnhanced } from "@/components/name-text-translator-enhanced"
+import { NameTextFormatterV2Enhanced } from "@/components/name-text-formatter-v2-enhanced"
+import { NameTextAnalyzerEnhanced } from "@/components/name-text-analyzer-enhanced"
+import { NameTextConverterEnhanced } from "@/components/name-text-converter-enhanced"
 import { useState } from "react"
 
 export default function HomePage() {
@@ -1149,6 +1153,18 @@ export default function HomePage() {
               </div>
               <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
                 <NameTextHighlighterEnhanced />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameTextTranslatorEnhanced />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameTextFormatterV2Enhanced />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameTextAnalyzerEnhanced />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameTextConverterEnhanced />
               </div>
             </div>
           </section>
