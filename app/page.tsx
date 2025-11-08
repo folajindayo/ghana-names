@@ -154,6 +154,11 @@ import { NameTextReplacerEnhanced } from "@/components/name-text-replacer-enhanc
 import { NameFontStyleConverterEnhanced } from "@/components/name-font-style-converter-enhanced"
 import { NameTextSplitterEnhanced } from "@/components/name-text-splitter-enhanced"
 import { NameTextJoinerEnhanced } from "@/components/name-text-joiner-enhanced"
+import { NameTextReverserEnhanced } from "@/components/name-text-reverser-enhanced"
+import { NameTextCapitalizerEnhanced } from "@/components/name-text-capitalizer-enhanced"
+import { NameTextExtractorEnhanced } from "@/components/name-text-extractor-enhanced"
+import { NameTextFormatterEnhanced } from "@/components/name-text-formatter-enhanced"
+import { NameTextValidatorEnhanced } from "@/components/name-text-validator-enhanced"
 import { useState } from "react"
 
 export default function HomePage() {
@@ -974,6 +979,21 @@ export default function HomePage() {
               </div>
               <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
                 <NameTextJoinerEnhanced />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameTextReverserEnhanced />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameTextCapitalizerEnhanced />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameTextExtractorEnhanced />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameTextFormatterEnhanced />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameTextValidatorEnhanced />
               </div>
             </div>
           </section>
