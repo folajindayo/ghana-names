@@ -184,6 +184,10 @@ import { NameTextInverterEnhanced } from "@/components/name-text-inverter-enhanc
 import { NameTextTruncatorEnhanced } from "@/components/name-text-truncator-enhanced"
 import { NameTextPadderEnhanced } from "@/components/name-text-padder-enhanced"
 import { NameTextAlignerEnhanced } from "@/components/name-text-aligner-enhanced"
+import { NameTextRepeaterEnhanced } from "@/components/name-text-repeater-enhanced"
+import { NameTextSubstringExtractorEnhanced } from "@/components/name-text-substring-extractor-enhanced"
+import { NameTextWordWrapperEnhancedV2 } from "@/components/name-text-word-wrapper-enhanced-v2"
+import { NameTextRemoverEnhanced } from "@/components/name-text-remover-enhanced"
 import { useState } from "react"
 
 export default function HomePage() {
@@ -1101,6 +1105,18 @@ export default function HomePage() {
               </div>
               <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
                 <NameTextAlignerEnhanced />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameTextRepeaterEnhanced />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameTextSubstringExtractorEnhanced />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameTextWordWrapperEnhancedV2 />
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                <NameTextRemoverEnhanced />
               </div>
             </div>
           </section>
